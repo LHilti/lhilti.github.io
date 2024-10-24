@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Personal Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            margin: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .cv-section, .blog-section {
+            margin: 20px 0;
+        }
+        .cv-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .cv-section ul li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #333;
+        }
+        .blog-section article {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Name's Personal Website</h1>
+    </header>
+
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#cv">CV</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Welcome to my personal website! I'm [Your Name], a passionate [Your Profession] with experience in [Your Field]. This site showcases my CV and some thoughts in my blog.</p>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv-section">
+        <h2>CV</h2>
+        <ul>
+            <li>
+                <h3>Work Experience</h3>
+                <p><strong>Position:</strong> Software Developer</p>
+                <p><strong>Company:</strong> ABC Technologies</p>
+                <p><strong>Years:</strong> 2020 - Present</p>
+                <p>Responsibilities: Writing and maintaining code, collaborating with teams, developing features.</p>
+            </li>
+            <li>
+                <h3>Education</h3>
+                <p><strong>Degree:</strong> BSc in Computer Science</p>
+                <p><strong>Institution:</strong> XYZ University</p>
+                <p><strong>Year of Graduation:</strong> 2019</p>
+            </li>
+            <li>
+                <h3>Skills</h3>
+                <p>Programming Languages: HTML, CSS, JavaScript, Python, etc.</p>
+                <p>Frameworks: React, Django, etc.</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <h2>Blog</h2>
+
+        <article>
+            <h3>Post 1: My Journey in Web Development</h3>
+            <p>Date: January 15, 2024</p>
+            <p>Web development has been an exciting journey for me. I started out learning basic HTML, and now I work on full-stack projects using modern frameworks like React and Django. Here's how I got started...</p>
+        </article>
+
+        <article>
+            <h3>Post 2: Learning Python for Data Science</h3>
+            <p>Date: February 10, 2024</p>
+            <p>Python is a versatile language that's widely used in many fields, especially in data science. I recently completed a project that involved cleaning datasets and creating visualizations. Here's what I learned...</p>
+        </article>
+
+        <!-- Add more blog posts as needed -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you'd like to get in touch, you can reach me via email at: <strong>yourname@example.com</strong>.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Name</p>
+    </footer>
+
+</body>
+</html>
