@@ -3,137 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Personal Website</title>
+    <title>Lukas Hiltensberger - CV</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 40px;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
         }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
+        h1, h2, h3 {
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
+        h1 {
+            font-size: 2em;
+            margin-bottom: 5px;
         }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            margin: 20px;
-        }
-        h1, h2 {
+        h2 {
+            font-size: 1.5em;
             color: #333;
         }
-        .cv-section, .blog-section {
-            margin: 20px 0;
+        h3 {
+            margin-bottom: 10px;
+            color: #555;
         }
-        .cv-section ul {
-            list-style-type: none;
-            padding: 0;
+        .contact, .content {
+            max-width: 800px;
+            margin: auto;
         }
-        .cv-section ul li {
-            background: #f4f4f4;
+        .contact {
+            margin-bottom: 40px;
+        }
+        .contact p, .content p {
             margin: 5px 0;
-            padding: 10px;
-            border-left: 5px solid #333;
         }
-        .blog-section article {
-            border-bottom: 1px solid #ddd;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
+        .section {
+            margin-bottom: 30px;
         }
-        footer {
-            text-align: center;
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            margin-top: 30px;
+        .skills, .languages {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skill, .language {
+            flex: 1 1 48%;
+            margin-bottom: 10px;
+        }
+        .bar {
+            display: inline-block;
+            height: 10px;
+            background-color: #333;
+            width: 70%;
+            margin-left: 10px;
+        }
+        .skill .bar {
+            width: 80%;
+        }
+        .language .bar {
+            width: 90%;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Your Name's Personal Website</h1>
-    </header>
+    <!-- Cover Letter -->
+    <section class="contact">
+        <h1>Lukas Hiltensberger</h1>
+        <p>Haslachweg 1, 87538 Fischen, Deutschland</p>
+        <p><a href="mailto:hilti.lukas@gmail.com">hilti.lukas@gmail.com</a> / <a href="mailto:hiltensberg@mail.hs-ulm.de">hiltensberg@mail.hs-ulm.de</a></p>
+        <p>(+49) 157 3746 3621</p>
 
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#cv">CV</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
-    </nav>
+        <h3>Dr. Marion Maturilli</h3>
+        <p>Alfred Wegener Institute Helmholtz Centre for Polar and Marine Research</p>
+        <p>Am alten Hafen 26, 27568 Bremerhafen</p>
+        <p>Date: [22.06.2024]</p>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Welcome to my personal website! I'm [Your Name], a passionate [Your Profession] with experience in [Your Field]. This site showcases my CV and some thoughts in my blog.</p>
+        <p>Dear Dr. Maturilli,</p>
+        <p>
+            On a recent trip to Svalbard to visit a friend, I was struck by the beauty of the Arctic. This experience made me eager to spend more time in the Arctic, which led me to this position. During my trip, I learned about Arctic logistics through several smaller expeditions to the Fridtjovbreen and Atomfjella areas. These trips required careful planning and extra safety measures due to the harsh conditions in Svalbard. I enjoyed using my avalanche assessment and risk management skills which I developed as a freeride guide and through my hobby, alpinism. Adapting them to the Arctic with its unique dangers proved to be very interesting. The handling of the risks of polar bears and the obtaining of a Sysselmesteren weapons permit was also a fascinating experience.
+        </p>
+        <p>
+            For the Engineering position at the AWIPEV station, I’m excited to use the knowledge I gained during my studies abroad at Embry-Riddle Aeronautical University (ERAU). There, I worked on marine field projects, developed and tested sand penetrometer robots, and learned the importance of reliable and well-documented measurements. This experience was further enhanced by my time in the Research and Development Department at MinCam, where I regularly tested and assessed prototypes.
+        </p>
+        <p>
+            Having just completed my Master’s in Electrical Systems Engineering, I’m eager to gain practical field experience. I’m particularly motivated by the importance of Arctic research in understanding climate change. The potential negative feedback loops from glacial melt and permafrost degradation due to climate change are pressing issues that need immediate attention. By contributing to this research, I hope to help improve our understanding of these critical issues. I am a strong team player, motivated to work in an international environment, and excited to meet and collaborate with new people.
+        </p>
+        <p>Best regards,</p>
+        <p>Lukas Hiltensberger</p>
     </section>
 
     <!-- CV Section -->
-    <section id="cv" class="cv-section">
-        <h2>CV</h2>
-        <ul>
-            <li>
-                <h3>Work Experience</h3>
-                <p><strong>Position:</strong> Software Developer</p>
-                <p><strong>Company:</strong> ABC Technologies</p>
-                <p><strong>Years:</strong> 2020 - Present</p>
-                <p>Responsibilities: Writing and maintaining code, collaborating with teams, developing features.</p>
-            </li>
-            <li>
-                <h3>Education</h3>
-                <p><strong>Degree:</strong> BSc in Computer Science</p>
-                <p><strong>Institution:</strong> XYZ University</p>
-                <p><strong>Year of Graduation:</strong> 2019</p>
-            </li>
-            <li>
-                <h3>Skills</h3>
-                <p>Programming Languages: HTML, CSS, JavaScript, Python, etc.</p>
-                <p>Frameworks: React, Django, etc.</p>
-            </li>
-        </ul>
+    <section class="content">
+        <h2>Curriculum Vitae</h2>
+
+        <!-- Profile Section -->
+        <div class="section">
+            <h3>Profile</h3>
+            <p>Innovative hands-on engineer with experience in product development, aiming to become a Leading Product Development Engineer.</p>
+        </div>
+
+        <!-- Work Experience Section -->
+        <div class="section">
+            <h3>Work Experience</h3>
+            <ul>
+                <li><strong>Research Assistant</strong> (Aug 2023 – Jan 2024), Embrey Riddle Aeronautical University, Florida, USA
+                    <ul>
+                        <li>Mechatronics Engineering for Soft Robotics</li>
+                        <li>PCB and Embedded development</li>
+                        <li>Test and Data Engineering</li>
+                        <li>Prototyping (3D Printing, Soldering, Programming)</li>
+                    </ul>
+                </li>
+                <li><strong>Instructor Trainer</strong> (Mar 2023 – present), University Augsburg, Germany
+                    <ul>
+                        <li>Instructor trainer</li>
+                        <li>State test examiner</li>
+                    </ul>
+                </li>
+                <!-- More experience items can be added similarly -->
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h3>Education</h3>
+            <ul>
+                <li><strong>Master Systems Engineering (M.Eng.)</strong> (2021 – 2024), Technische Hochschule Ulm, Germany</li>
+                <li><strong>Bachelor of Science in Mechatronics (B.Sc.)</strong> (2017 – 2020), Management Center Innsbruck, Austria</li>
+                <!-- Add more education items similarly -->
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h3>Skills</h3>
+            <div class="skills">
+                <div class="skill">CAD experience (SolidWorks, Inventor, Catia)<div class="bar" style="width: 95%;"></div></div>
+                <div class="skill">Programming (C++)<div class="bar" style="width: 70%;"></div></div>
+                <div class="skill">Documentation (MS Office, LaTeX)<div class="bar" style="width: 95%;"></div></div>
+                <!-- More skills can be added similarly -->
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section">
+            <h3>Contact</h3>
+            <p><strong>Email:</strong> <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a></p>
+            <p><strong>Address:</strong> Haslachweg 1, 87538 Fischen, Deutschland</p>
+        </div>
+
+        <!-- Extracurricular Section -->
+        <div class="section">
+            <h3>Extracurricular Activities</h3>
+            <ul>
+                <li>Fixer at Repair-Café Sonthofen</li>
+                <li>State-certified/Level-4 Ski Instructor</li>
+                <li>Registered Rafting Guide</li>
+                <!-- More activities can be added similarly -->
+            </ul>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="section">
+            <h3>Languages</h3>
+            <div class="languages">
+                <div class="language">German (Native Speaker)<div class="bar" style="width: 100%;"></div></div>
+                <div class="language">English (Fluent - C1)<div class="bar" style="width: 90%;"></div></div>
+            </div>
+        </div>
+
+        <!-- Interests Section -->
+        <div class="section">
+            <h3>Interests</h3>
+            <ul>
+                <li>Professional: Product development, Mechanical design engineering</li>
+                <li>Personal: Skiing, electronic projects, outdoor sports, cooking, handcrafting</li>
+            </ul>
+        </div>
     </section>
-
-    <!-- Blog Section -->
-    <section id="blog" class="blog-section">
-        <h2>Blog</h2>
-
-        <article>
-            <h3>Post 1: My Journey in Web Development</h3>
-            <p>Date: January 15, 2024</p>
-            <p>Web development has been an exciting journey for me. I started out learning basic HTML, and now I work on full-stack projects using modern frameworks like React and Django. Here's how I got started...</p>
-        </article>
-
-        <article>
-            <h3>Post 2: Learning Python for Data Science</h3>
-            <p>Date: February 10, 2024</p>
-            <p>Python is a versatile language that's widely used in many fields, especially in data science. I recently completed a project that involved cleaning datasets and creating visualizations. Here's what I learned...</p>
-        </article>
-
-        <!-- Add more blog posts as needed -->
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>If you'd like to get in touch, you can reach me via email at: <strong>yourname@example.com</strong>.</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Your Name</p>
-    </footer>
 
 </body>
 </html>
