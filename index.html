@@ -3,159 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukas Hiltensberger - CV</title>
+    <title>Lukas Hiltensberger - Personal Website</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
-            line-height: 1.6;
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
         h1, h2, h3 {
             text-align: center;
         }
-        h1 {
-            font-size: 2em;
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #00A1FF;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* About Section */
+        .about, .skills, .experience, .contact, .gallery {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Skills Section */
+        .skills .skill-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-item {
+            flex-basis: 48%;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2em;
             margin-bottom: 5px;
         }
-        h2 {
-            font-size: 1.5em;
-            color: #333;
+
+        .bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            position: relative;
         }
-        h3 {
+
+        .bar-fill {
+            height: 100%;
+            background: #00A1FF;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        /* Experience Section */
+        .experience .job {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 5px solid #00A1FF;
+        }
+
+        .job h3 {
+            font-size: 1.4em;
             margin-bottom: 10px;
-            color: #555;
         }
-        .contact, .content {
-            max-width: 800px;
+
+        .job p {
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery img {
+            width: 30%;
+            margin: 1%;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact form {
+            max-width: 600px;
             margin: auto;
         }
-        .contact {
-            margin-bottom: 40px;
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
         }
-        .contact p, .content p {
-            margin: 5px 0;
+
+        .contact button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00A1FF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
         }
-        .section {
-            margin-bottom: 30px;
+
+        .contact button:hover {
+            background-color: #0077cc;
         }
-        .skills, .languages {
-            display: flex;
-            flex-wrap: wrap;
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
         }
-        .skill, .language {
-            flex: 1 1 48%;
-            margin-bottom: 10px;
+
+        @media (max-width: 768px) {
+            .skills .skill-item {
+                flex-basis: 100%;
+            }
+
+            .gallery img {
+                width: 48%;
+            }
         }
-        .bar {
-            display: inline-block;
-            height: 10px;
-            background-color: #333;
-            width: 70%;
-            margin-left: 10px;
-        }
-        .skill .bar {
-            width: 80%;
-        }
-        .language .bar {
-            width: 90%;
-        }
-        ul {
-            margin: 0;
-            padding-left: 20px;
+
+        @media (max-width: 500px) {
+            .gallery img {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- CV Section -->
-    <section class="content">
-        <h2>Curriculum Vitae</h2>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        <!-- Profile Section -->
-        <div class="section">
-            <h3>Profile</h3>
-            <p>Innovative hands-on engineer with experience in product development, aiming to become a Leading Product Development Engineer.</p>
-        </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Lukas Hiltensberger</h1>
+        <p>Engineer | Product Developer | Adventurer</p>
+    </section>
 
-        <!-- Work Experience Section -->
-        <div class="section">
-            <h3>Work Experience</h3>
-            <ul>
-                <li><strong>Research Assistant</strong> (Aug 2023 – Jan 2024), Embrey Riddle Aeronautical University, Florida, USA
-                    <ul>
-                        <li>Mechatronics Engineering for Soft Robotics</li>
-                        <li>PCB and Embedded development</li>
-                        <li>Test and Data Engineering</li>
-                        <li>Prototyping (3D Printing, Soldering, Programming)</li>
-                    </ul>
-                </li>
-                <li><strong>Instructor Trainer</strong> (Mar 2023 – present), University Augsburg, Germany
-                    <ul>
-                        <li>Instructor trainer</li>
-                        <li>State test examiner</li>
-                    </ul>
-                </li>
-                <!-- More experience items can be added similarly -->
-            </ul>
-        </div>
+    <!-- About Section -->
+    <section id="about" class="about container">
+        <h2 class="section-title">About Me</h2>
+        <img src="https://via.placeholder.com/200" alt="Lukas Hiltensberger">
+        <p>
+            I am an innovative hands-on engineer with experience in product development. 
+            Passionate about technology, problem-solving, and outdoor adventures. 
+            I aim to become a leading product development engineer and contribute to impactful projects around the world.
+        </p>
+    </section>
 
-        <!-- Education Section -->
-        <div class="section">
-            <h3>Education</h3>
-            <ul>
-                <li><strong>Master Systems Engineering (M.Eng.)</strong> (2021 – 2024), Technische Hochschule Ulm, Germany</li>
-                <li><strong>Bachelor of Science in Mechatronics (B.Sc.)</strong> (2017 – 2020), Management Center Innsbruck, Austria</li>
-                <!-- Add more education items similarly -->
-            </ul>
-        </div>
-
-        <!-- Skills Section -->
-        <div class="section">
-            <h3>Skills</h3>
-            <div class="skills">
-                <div class="skill">CAD experience (SolidWorks, Inventor, Catia)<div class="bar" style="width: 95%;"></div></div>
-                <div class="skill">Programming (C++)<div class="bar" style="width: 70%;"></div></div>
-                <div class="skill">Documentation (MS Office, LaTeX)<div class="bar" style="width: 95%;"></div></div>
-                <!-- More skills can be added similarly -->
+    <!-- Skills Section -->
+    <section id="skills" class="skills container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skill-container">
+            <div class="skill-item">
+                <h3>CAD (SolidWorks, Inventor)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 95%;"></div>
+                </div>
             </div>
-        </div>
-
-        <!-- Contact Section -->
-        <div class="section">
-            <h3>Contact</h3>
-            <p><strong>Email:</strong> <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a></p>
-            <p><strong>Address:</strong> Haslachweg 1, 87538 Fischen, Deutschland</p>
-        </div>
-
-        <!-- Extracurricular Section -->
-        <div class="section">
-            <h3>Extracurricular Activities</h3>
-            <ul>
-                <li>Fixer at Repair-Café Sonthofen</li>
-                <li>State-certified/Level-4 Ski Instructor</li>
-                <li>Registered Rafting Guide</li>
-                <!-- More activities can be added similarly -->
-            </ul>
-        </div>
-
-        <!-- Languages Section -->
-        <div class="section">
-            <h3>Languages</h3>
-            <div class="languages">
-                <div class="language">German (Native Speaker)<div class="bar" style="width: 100%;"></div></div>
-                <div class="language">English (Fluent - C1)<div class="bar" style="width: 90%;"></div></div>
+            <div class="skill-item">
+                <h3>Programming (C++)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
+                </div>
             </div>
-        </div>
-
-        <!-- Interests Section -->
-        <div class="section">
-            <h3>Interests</h3>
-            <ul>
-                <li>Professional: Product development, Mechanical design engineering</li>
-                <li>Personal: Skiing, electronic projects, outdoor sports, cooking, handcrafting</li>
-            </ul>
+            <div class="skill-item">
+                <h3>Prototyping (3D Printing, Machining)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Embedded Systems</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 80%;"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-</body>
-</html>
+    <!-- Experience Section -->
+    <section id="experience" class="experience container">
+        <h2 class="section-title">Experience</h2>
+        <div class="job">
+            <h3>Research Assistant - Embrey Riddle Aeronautical University (Aug 2023 – Jan 2024)</h3>
+            <p>Mechatronics Engineering for Soft Robotics, PCB and Embedded development, Test and Data Engineering, Prototyping (3D Printing, Soldering, Programming).</p>
+        </div>
+        <div class="job">
+            <h3>Instructor Trainer - University Augsburg (Mar 2023 – Present)</h3>
+            <p>Instructor trainer and State test examiner.</p>
+        </div>
+        <div class="job">
+            <h3>Part-Time Engineer - MinCam GmbH (Aug 2020 – Dec 2022)</h3>
+            <p>Product Development (R&D), CAD, Prototyping, and Lean Engineering.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery container">
+        <h2 class="section-title">Gallery</h2>
+        <img src="https://via.placeholder.com/400" alt="Project Image 1">
+        <img src="https://via.placeholder.com/400" alt="Project Image 2">
+        <img src="https://via.placeholder.com/400" alt="Project Image 3">
+    </section>
+
+    <!-- Contact Section -->
