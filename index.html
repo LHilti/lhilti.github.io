@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Responsive Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukas Hiltensberger - Personal Website</title>
     <style>
         /* General Styles */
         * {
@@ -13,9 +13,10 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
             color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
         }
 
         a {
@@ -23,71 +24,187 @@
             text-decoration: none;
         }
 
-        /* Desktop Navigation Bar */
-        nav.desktop-nav {
-            display: flex;
-            justify-content: center;
-            background-color: #333;
-            padding: 10px 0;
+        h1, h2, h3 {
+            text-align: center;
         }
 
-        nav.desktop-nav ul {
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            justify-content: center;
         }
 
-        nav.desktop-nav ul li a {
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
             color: #fff;
             font-size: 18px;
         }
 
-        nav.desktop-nav ul li a:hover {
+        nav ul li a:hover {
             color: #00A1FF;
         }
 
-        /* Mobile Hamburger Menu */
-        .hamburger {
-            display: none;
-            font-size: 30px;
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 100vh;
             color: #fff;
-            background: #333;
-            padding: 15px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* About Section */
+        .about, .skills, .experience, .contact, .gallery {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            text-align: center;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Skills Section */
+        .skills .skill-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-item {
+            flex-basis: 48%;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #00A1FF;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        /* Experience Section */
+        .experience .job {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 5px solid #00A1FF;
+        }
+
+        .job h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .job p {
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery img {
+            width: 30%;
+            margin: 1%;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00A1FF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
             cursor: pointer;
         }
 
-        /* Mobile Dropdown Menu */
-        .mobile-nav {
-            display: none;
-            flex-direction: column;
-            background-color: #333;
+        .contact button:hover {
+            background-color: #0077cc;
+        }
+
+        /* Footer */
+        footer {
             text-align: center;
-            padding: 10px 0;
+            padding: 20px;
+            background: #333;
+            color: #fff;
         }
 
-        .mobile-nav a {
-            color: white;
-            padding: 10px;
-            display: block;
-        }
-
-        .mobile-nav a:hover {
-            background-color: #00A1FF;
-        }
-
-        /* Responsive Layout */
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .desktop-nav {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .mobile-nav {
-                display: none;
+            .skills .skill-item {
+                flex-basis: 100%;
             }
 
             .gallery img {
@@ -95,7 +212,6 @@
             }
         }
 
-        /* Full-width images on very small screens */
         @media (max-width: 500px) {
             .gallery img {
                 width: 100%;
@@ -105,58 +221,89 @@
 </head>
 <body>
 
-    <!-- Mobile Hamburger Icon -->
-    <div class="hamburger" onclick="toggleMobileNav()">☰ Menu</div>
-
-    <!-- Mobile Dropdown Menu -->
-    <div class="mobile-nav" id="mobileNav">
-        <a href="#projects">Projects</a>
-        <a href="#contests">Contests</a>
-        <a href="#teachers">Teachers</a>
-        <a href="#login">Log In</a>
-        <a href="#signup">Sign Up</a>
-    </div>
-
-    <!-- Desktop Navigation Bar -->
-    <nav class="desktop-nav">
+    <!-- Navbar -->
+    <nav>
         <ul>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contests">Contests</a></li>
-            <li><a href="#teachers">Teachers</a></li>
-            <li><a href="#login">Log In</a></li>
-            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Content Sections (Placeholder) -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Project details go here.</p>
-    </section>
-    <section id="contests">
-        <h2>Contests</h2>
-        <p>Contest details go here.</p>
-    </section>
-    <section id="teachers">
-        <h2>Teachers</h2>
-        <p>Teacher information goes here.</p>
-    </section>
-    <section id="login">
-        <h2>Log In</h2>
-        <p>Login form here.</p>
-    </section>
-    <section id="signup">
-        <h2>Sign Up</h2>
-        <p>Signup form here.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Lukas Hiltensberger</h1>
+        <p>Engineer | Product Developer | Ski-Instructor | Adventurer</p>
     </section>
 
-    <!-- JavaScript to Toggle Mobile Nav -->
-    <script>
-        function toggleMobileNav() {
-            const mobileNav = document.getElementById("mobileNav");
-            mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
-        }
-    </script>
+    <!-- About Section -->
+    <section id="about" class="about container">
+        <h2 class="section-title">About Me</h2>
+        <img src="https://via.placeholder.com/200" alt="Lukas Hiltensberger">
+        <p>
+            I am an innovative hands-on engineer with experience in product development. 
+            Passionate about technology, problem-solving, and outdoor adventures. 
+            I aim to become a leading product development engineer and contribute to impactful projects around the world.
+        </p>
+    </section>
 
-</body>
-</html>
+    <!-- Skills Section -->
+    <section id="skills" class="skills container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skill-container">
+            <div class="skill-item">
+                <h3>CAD (SolidWorks, Inventor)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Programming (C++)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Prototyping (3D Printing, Machining)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Embedded Systems</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience container">
+        <h2 class="section-title">Experience</h2>
+        <div class="job">
+            <h3>Research Assistant - Embrey Riddle Aeronautical University (Aug 2023 – Jan 2024)</h3>
+            <p>Mechatronics Engineering for Soft Robotics, PCB and Embedded development, Test and Data Engineering, Prototyping (3D Printing, Soldering, Programming).</p>
+        </div>
+        <div class="job">
+            <h3>Instructor Trainer - University Augsburg (Mar 2023 – Present)</h3>
+            <p>Instructor trainer and State test examiner.</p>
+        </div>
+        <div class="job">
+            <h3>Part-Time Engineer - MinCam GmbH (Aug 2020 – Dec 2022)</h3>
+            <p>Product Development (R&D), CAD, Prototyping, and Lean Engineering.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery container">
+        <h2 class="section-title">Gallery</h2>
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(1).jpg" alt="Image 1">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(2).jpg" alt="Image 2">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(3).jpg" alt="Image 3">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(4).jpg" alt="Image 4">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(5).jpg" alt="Image 5">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(6).jpg" alt="Image 6">
+</section>
