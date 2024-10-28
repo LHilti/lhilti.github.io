@@ -1,147 +1,391 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charSet="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2" />
-    <meta name="googlebot" content="index,follow" />
-    <meta name="keywords" content="Brand identity design, Product development, Web design, Mechanical engineering, Mechatronics, CAD, Embedded systems, Skiing, Outdoor activities, Renewable energy" />
-    <meta name="author" content="Lukas Hiltensberger" />
-    <meta name="referrer" content="no-referrer" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="geo.region" content="DE-BY" />
-    <meta name="geo.placename" content="Fischen" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/png/apple-touch-icon.png" />
-    <link rel="icon" href="/images/png/favicon.png" sizes="32x32" />
-    <link rel="mask-icon" href="/images/svg/safari-pinned-tab.svg" color="#ff98a2" />
-    <meta name="msapplication-TileColor" content="#1C1F2A" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1C1F2A" />
-    <title>Lukas Hiltensberger | Product Development Engineer</title>
-    <meta name="description" content="Innovative product development engineer specializing in mechatronics, mechanical design, and sustainable energy engineering" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="og:title" content="Lukas Hiltensberger" />
-    <meta property="og:description" content="Innovative engineer focusing on mechanical design and sustainable product development." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/png/opengraph.png" />
-    <meta property="og:image:alt" content="Lukas Hiltensberger" />
-    <meta property="og:site_name" content="Lukas Hiltensberger" />
-    <link rel="stylesheet" href="/css/style.css" />
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Responsive Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lukas Hiltensberger - Personal Website</title>
+<style>
+/* General Styles */
+* {
+@@ -13,89 +13,205 @@
+}
+
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+color: #333;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+        /* Desktop Navigation Bar */
+        nav.desktop-nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 0;
+        }
+
+        /* Navbar Styles */
+        nav {
+            background: #333;
+            color: #fff;
+padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+}
+
+        nav.desktop-nav ul {
+        nav ul {
+list-style: none;
+display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+}
+
+        nav.desktop-nav ul li a {
+        nav ul li a {
+color: #fff;
+font-size: 18px;
+}
+
+        nav.desktop-nav ul li a:hover {
+        nav ul li a:hover {
+color: #00A1FF;
+}
+
+        /* Mobile Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 30px;
+        /* Hero Section */
+        .hero {
+            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
+            height: 100vh;
+color: #fff;
+            background: #333;
+            padding: 15px;
+text-align: center;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+}
+
+        /* Mobile Dropdown Menu */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background-color: #333;
+        .hero h1 {
+            font-size: 3.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* About Section */
+        .about, .skills, .experience, .contact, .gallery {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            font-size: 1.1em;
+text-align: center;
+            padding: 10px 0;
+            max-width: 800px;
+            margin: 20px auto;
+}
+
+        .mobile-nav a {
+            color: white;
+            padding: 10px;
+        .about img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+display: block;
+            margin: 20px auto;
+        }
+
+        /* Skills Section */
+        .skills .skill-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .skill-item {
+            flex-basis: 48%;
+        }
+
+        .skill-item h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .bar {
+            background: #e0e0e0;
+            height: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: #00A1FF;
+            border-radius: 5px;
+            position: absolute;
+}
+
+        .mobile-nav a:hover {
+        /* Experience Section */
+        .experience .job {
+            background-color: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-left: 5px solid #00A1FF;
+        }
+
+        .job h3 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .job p {
+            margin-bottom: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery img {
+            width: 30%;
+            margin: 1%;
+            border-radius: 10px;
+        }
+
+        /* Contact Section */
+        .contact form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .contact button {
+            width: 100%;
+            padding: 10px;
+background-color: #00A1FF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+}
+
+        /* Responsive Layout */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+        .contact button:hover {
+            background-color: #0077cc;
+        }
+
+            .hamburger {
+                display: block;
+            }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+        }
+
+            .mobile-nav {
+                display: none;
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .skills .skill-item {
+                flex-basis: 100%;
+}
+
+.gallery img {
+width: 48%;
+}
+}
+
+        /* Full-width images on very small screens */
+@media (max-width: 500px) {
+.gallery img {
+width: 100%;
+@@ -105,58 +221,89 @@
 </head>
-
 <body>
-    <div id="__next">
-        <div class="app">
-            <div class="nav main-grid">
-                <div class="margin"></div>
-                <div class="main__body">
-                    <div class="nav__wrapper">
-                        <div class="nav__left">
-                            <a href="/" locale="en">
-                                <svg class="nav__logo" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <title>Lukas Hiltensberger Logo</title>
-                                    <circle cx="50" cy="50" r="40" fill="#EB3323" />
-                                    <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="20" dy=".3em">LH</text>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="nav__right">
-                            <a href="#contact">
-                                <div class="nav__contact inline-link">
-                                    <span>Contact</span>
-                                </div>
-                            </a>
-                            <div class="language-switcher">
-                                <a href="/de" locale="de" aria-label="Website auf Deutsch">Deutsch</a>
-                            </div>
-                        </div>
-                    </div>
+
+    <!-- Mobile Hamburger Icon -->
+    <div class="hamburger" onclick="toggleMobileNav()">☰ Menu</div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#projects">Projects</a>
+        <a href="#contests">Contests</a>
+        <a href="#teachers">Teachers</a>
+        <a href="#login">Log In</a>
+        <a href="#signup">Sign Up</a>
+    </div>
+
+    <!-- Desktop Navigation Bar -->
+    <nav class="desktop-nav">
+    <!-- Navbar -->
+    <nav>
+<ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contests">Contests</a></li>
+            <li><a href="#teachers">Teachers</a></li>
+            <li><a href="#login">Log In</a></li>
+            <li><a href="#signup">Sign Up</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+    <!-- Content Sections (Placeholder) -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Project details go here.</p>
+    </section>
+    <section id="contests">
+        <h2>Contests</h2>
+        <p>Contest details go here.</p>
+    </section>
+    <section id="teachers">
+        <h2>Teachers</h2>
+        <p>Teacher information goes here.</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Lukas Hiltensberger</h1>
+        <p>Engineer | Product Developer | Ski-Instructor | Adventurer</p>
+</section>
+    <section id="login">
+        <h2>Log In</h2>
+        <p>Login form here.</p>
+
+    <!-- About Section -->
+    <section id="about" class="about container">
+        <h2 class="section-title">About Me</h2>
+        <img src="https://via.placeholder.com/200" alt="Lukas Hiltensberger">
+        <p>
+            I am an innovative hands-on engineer with experience in product development. 
+            Passionate about technology, problem-solving, and outdoor adventures. 
+            I aim to become a leading product development engineer and contribute to impactful projects around the world.
+        </p>
+</section>
+    <section id="signup">
+        <h2>Sign Up</h2>
+        <p>Signup form here.</p>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skill-container">
+            <div class="skill-item">
+                <h3>CAD (SolidWorks, Inventor)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 95%;"></div>
                 </div>
-                <div class="margin"></div>
             </div>
-
-            <div class="home">
-                <div class="slide hero">
-                    <div class="main-grid">
-                        <div class="margin"></div>
-                        <div class="main-body">
-                            <div class="hero__wrapper">
-                                <div class="font--main">
-                                    <span class="word-wrapper"><span class="word">Lukas Hiltensberger</span></span>
-                                </div>
-                                <div class="font--main">
-                                    <span class="word-wrapper"><span class="word">Innovative Product Development Engineer</span></span>
-                                </div>
-                                <div class="font--alt">
-                                    <span class="word-wrapper"><span class="word">Specializing in Mechatronics and Mechanical Design</span></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin"></div>
-                    </div>
+            <div class="skill-item">
+                <h3>Programming (C++)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
                 </div>
-
-                <div class="slide services">
-                    <div class="main-grid">
-                        <div class="margin"></div>
-                        <div class="main-body">
-                            <div class="block block--design">
-                                <div class="column column--left">
-                                    <p>Engineering Expertise</p>
-                                </div>
-                                <div class="column column--right">
-                                    <ul>
-                                        <li>Product Development</li>
-                                        <li>Mechanical Design (CAD)</li>
-                                        <li>Embedded Systems</li>
-                                        <li>Prototyping & Testing</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="block block--operations">
-                                <div class="column column--left">
-                                    <p>Sustainable Solutions</p>
-                                </div>
-                                <div class="column column--right">
-                                    <ul>
-                                        <li>Renewable Energy Projects</li>
-                                        <li>Lean Engineering</li>
-                                        <li>UX Consulting</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin"></div>
-                    </div>
+            </div>
+            <div class="skill-item">
+                <h3>Prototyping (3D Printing, Machining)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 90%;"></div>
                 </div>
-
-                <div class="slide footer" id="contact">
-                    <div class="main-grid">
-                        <div class="margin"></div>
-                        <div class="main-body">
-                            <div class="slide__inner">
-                                <div class="block--top"></div>
-                                <div class="contact__block">
-                                    <span>Contact Lukas Hiltensberger</span>
-                                    <ul>
-                                        <li>Email: <a href="mailto:hilti.lukas@gmail.com">hilti.lukas@gmail.com</a></li>
-                                        <li>Phone: <a href="tel:+4915737463621">+49 157 3746 3621</a></li>
-                                        <li>Location: Fischen, Germany</li>
-                                    </ul>
-                                    <a href="mailto:hilti.lukas@gmail.com" class="inline-link">
-                                        <span>Get in Touch</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="margin"></div>
-                    </div>
+            </div>
+            <div class="skill-item">
+                <h3>Embedded Systems</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 80%;"></div>
                 </div>
             </div>
         </div>
-    </div>
+</section>
 
-    <script src="/js/main.js" defer></script>
+    <!-- JavaScript to Toggle Mobile Nav -->
+    <script>
+        function toggleMobileNav() {
+            const mobileNav = document.getElementById("mobileNav");
+            mobileNav.style.display = mobileNav.style.display === "flex" ? "none" : "flex";
+        }
+    </script>
+    <!-- Experience Section -->
+    <section id="experience" class="experience container">
+        <h2 class="section-title">Experience</h2>
+        <div class="job">
+            <h3>Research Assistant - Embrey Riddle Aeronautical University (Aug 2023 – Jan 2024)</h3>
+            <p>Mechatronics Engineering for Soft Robotics, PCB and Embedded development, Test and Data Engineering, Prototyping (3D Printing, Soldering, Programming).</p>
+        </div>
+        <div class="job">
+            <h3>Instructor Trainer - University Augsburg (Mar 2023 – Present)</h3>
+            <p>Instructor trainer and State test examiner.</p>
+        </div>
+        <div class="job">
+            <h3>Part-Time Engineer - MinCam GmbH (Aug 2020 – Dec 2022)</h3>
+            <p>Product Development (R&D), CAD, Prototyping, and Lean Engineering.</p>
+        </div>
+    </section>
+
 </body>
-
 </html>
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery container">
+        <h2 class="section-title">Gallery</h2>
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(1).jpg" alt="Image 1">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(2).jpg" alt="Image 2">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(3).jpg" alt="Image 3">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(4).jpg" alt="Image 4">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(5).jpg" alt="Image 5">
+        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(6).jpg" alt="Image 6">
+</section>
