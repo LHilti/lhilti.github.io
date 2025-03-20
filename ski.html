@@ -20,39 +20,29 @@
             font-size: 2.5em;
             color: #00796b;
         }
-        p {
+        p, ul {
             font-size: 1.2em;
             line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li::before {
+            content: "•";
+            color: #00796b;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         img {
             max-width: 100%;
             height: auto;
             margin: 10px 0;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-    <section>
-        <h1>Hey, welcome to my site!</h1>
-        <p>I’m Lukas, an outdoor guide and instructor with over a decade of experience in alpine and water sports. As a Level 4 ISIA Ski Instructor, I’ve spent the last 12 years teaching everything from kids to carving and park skiing. Plus, with 3 years as a instructor Trainer as well as a Freeride guide I love taking people off-piste to explore untouched terrain.</p>
-        <p>With a strong background in safety, having completed the IFMGA Winter Aspirant Test in Austria, I bring a high level of expertise to my guiding work. My rafting experience spans 9 years as a freelance raft guide, certified with IRS WI3 and VAO credentials. Also holder of a Svalbard weapons burrowing license.</p>
-        <p>Whether it’s skiing, freeriding, rafting, or just exploring the mountains, I’m always up for an adventure. Let’s get out there and make it happen!</p>
-        <p>Feel free to reach out: <a href="mailto:adventure@h.eu">adventure@hiltensberger.eu</a></p>
-    </section>    </div>
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery container">
-        <h2 class="section-title">Gallery</h2>
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(1).jpg" alt="Image 1" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(1).jpeg" alt="Image 2" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(2).JPG" alt="Image 3" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/climb2.jpg" alt="Image 4" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/climb3.jpg" alt="Image 5" />
-        <!--<img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/cleimb.jpg" alt="Image 6" />-->
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(3).JPG" alt="Image 7" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(4).JPG" alt="Image 8" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(1).jpg" alt="Image 9" />
-        <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(2).jpg" alt="Image 10" />
-    </section>
-</body>
-</html>
+        .impressum {
+            font-size: 0.9em;
+            text-align: left;
+            padding: 20px 0;
+            border-top: 1px solid #00796b
