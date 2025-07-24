@@ -24,6 +24,10 @@
             text-decoration: none;
         }
 
+        a:hover {
+            color: #00A1FF;
+        }
+
         h1, h2, h3 {
             text-align: center;
         }
@@ -85,7 +89,7 @@
         }
 
         /* About Section */
-        .about, .skills, .experience, .contact, .gallery {
+        .about, .skills, .experience, .contact, .gallery, .education {
             padding: 60px 0;
         }
 
@@ -140,8 +144,8 @@
             position: absolute;
         }
 
-        /* Experience Section */
-        .experience .job {
+        /* Experience/Education Section */
+        .experience .job, .education .job {
             background-color: #fff;
             margin: 20px 0;
             padding: 20px;
@@ -154,6 +158,12 @@
         }
 
         .job p {
+            margin-bottom: 10px;
+        }
+
+        .job-meta {
+            font-style: italic;
+            color: #666;
             margin-bottom: 10px;
         }
 
@@ -193,12 +203,57 @@
             background-color: #0077cc;
         }
 
+        .contact-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+
         /* Footer */
         footer {
             text-align: center;
             padding: 20px;
             background: #333;
             color: #fff;
+        }
+
+        /* Other Activities Section */
+        .other-activities {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .activity-item {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid #00A1FF;
+        }
+
+        .activity-item h3 {
+            text-align: left;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .activity-item ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        .activity-item li {
+            margin-bottom: 5px;
         }
 
         /* Responsive Styles */
@@ -209,6 +264,18 @@
 
             .gallery img {
                 width: 48%;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
             }
         }
 
@@ -226,119 +293,243 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#experience">Experience</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#other-activities">Activities</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
     
     <!-- Hero Section -->
     <section class="hero">
-    <h1><a href="https://www.linkedin.com/in/lukas-hiltensberger-b201451b4/">Lukas Hiltensberger</a></h1>
-    <p>Engineer | Product Developer | Ski-Instructor | Adventurer</p>
-</section>
+        <h1><a href="https://www.linkedin.com/in/lukas-hiltensberger-b201451b4/">Lukas Hiltensberger</a></h1>
+        <p>M.Eng. Systems Engineering and Management</p>
+        <p>Product Development Engineer | Innovator | Ski Instructor | Adventurer</p>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="about container">
         <h2 class="section-title">About Me</h2>
         <img src="https://via.placeholder.com/200" alt="Lukas Hiltensberger">
         <p>
-            I am an innovative hands-on engineer with experience in product development. 
-            Passionate about technology, problem-solving, and outdoor adventures. 
-            I aim to become a leading product development engineer and contribute to impactful projects around the world.
+            Innovative and hands-on engineer experienced in the development of electrical and mechanical hardware products, 
+            with a strong drive to bring innovations to market. Currently working on cutting-edge robotic pipe refurbishment 
+            technology, combining my passion for product development with advanced automation solutions.
         </p>
-        <p>Feel free to reach out: <a href="mailto:engineering@h.eu">engineering@hiltensberger.eu</a></p>
+        <p>
+            Based between Norway and Germany, I bring a unique blend of technical expertise, outdoor adventure experience, 
+            and international perspective to every project I undertake.
+        </p>
+        <p>Feel free to reach out: <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a> | 
+        <a href="http://www.hiltensberger.eu/engineering">hiltensberger.eu/engineering</a></p>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills container">
-        <h2 class="section-title">Skills</h2>
+        <h2 class="section-title">Technical Skills</h2>
         <div class="skill-container">
             <div class="skill-item">
-                <h3>CAD (SolidWorks, Inventor, Catia)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 95%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Programming (C++)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 70%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Prototyping (3D Printing, Machining)</h3>
+                <h3>Product Innovation & Development</h3>
                 <div class="bar">
                     <div class="bar-fill" style="width: 90%;"></div>
                 </div>
             </div>
             <div class="skill-item">
-                <h3>Embedded Systems (Electronics, Soldering)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 80%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Documentation (MS Office, Latex)</h3>
+                <h3>CAD Experience (SolidWorks, Inventor)</h3>
                 <div class="bar">
                     <div class="bar-fill" style="width: 95%;"></div>
                 </div>
             </div>
             <div class="skill-item">
-                <h3>Lean Production Engineering</h3>
+                <h3>3D Printing (FDM, SLA)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 90%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Machining (Lathe, Milling)</h3>
                 <div class="bar">
                     <div class="bar-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Programming (C++, Matlab, Java)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>FEM Analysis (Inventor, Ansys)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Electronics (Soldering, Troubleshooting)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 80%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Documentation (MS Office, LaTeX)</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 95%;"></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <h3>Business Development</h3>
+                <div class="bar">
+                    <div class="bar-fill" style="width: 70%;"></div>
                 </div>
             </div>
         </div>
     </section>
 
-   <!-- Experience Section -->
-<section id="experience" class="experience container">
-    <h2 class="section-title">Experience</h2>
-    <div class="job">
-        <h3>Research Assistant - Embrey Riddle Aeronautical University (Aug 2023 – Jan 2024)</h3>
-        <p>Mechatronics Engineering for Soft Robotics, PCB and Embedded development, Test/Data Engineering, and Prototyping.</p>
-        <p>Developed and implemented a soft robotic system, focusing on novel mechanisms for tip-based fluidization. Conducted test engineering for data acquisition and prototyping using 3D printing, soldering, and programming techniques.</p>
-    </div>
-    <div class="job">
-        <h3>Instructor Trainer - University Augsburg (Mar 2023 – Present)</h3>
-        <p>Instructor Trainer and State test examiner for ski instructors. Trained instructors for professional development and ensured safety standards.</p>
-    </div>
-    <div class="job">
-        <h3>Engineer - MinCam GmbH (Aug 2020 – Dec 2022)</h3>
-        <p>Led product development for sewage camera technology. Utilized CAD for design and rapid prototyping to create testable prototypes. Applied Lean Engineering to optimize production processes, reducing costs and increasing product quality.</p>
-    </div>
-    <div class="job">
-        <h3>Lean Production Engineer - MinCam GmbH (Aug 2020 – Dec 2022)</h3>
-        <p>Lead a team to optimize production processes using lean engineering techniques. Designed and implemented novel machinery, reducing costs and time in the assembly process.</p>
-    </div>
-    <div class="job">
-        <h3>Bachelor Thesis Product Development - MinCam GmbH (Jan 2020 – Jul 2020)</h3>
-        <p>Led product development for a new project, utilizing rapid prototyping to design, build, and test prototypes, iteratively improving designs for faster development and optimized performance.</p>
-    </div>
-    <div class="job">
-        <h3>Production Machine Engineering Intern - BBS Automation (Jun 2019 – Aug 2019)</h3>
-        <p>Developed solutions for production machinery. Worked on CAD assembly, mechanical design, and BLDC controller setup.</p>
-    </div>
-    <div class="job">
-        <h3>Formula Student Engineering - Campus Tirol Motorsport (Oct 2018 – Dec 2019)</h3>
-        <p>Mechanical Design Engineer, focused on vehicle component design and assembly. Contributed to BLDC controller setup and integration.</p>
-    </div>
-    <div class="job">
-        <h3>Freelance Raft Guide - Various Companies (Jun 2018 – Present)</h3>
-        <p>Registered Raft Guide with certifications (IRS WI3, VAO). Nine years of experience providing guided tours and rafting adventures.</p>
-    </div>
-    <div class="job">
-        <h3>Woodworking in Construction - Zimmerei Buhl (Jun 2016 – Sep 2016)</h3>
-        <p>Worked on housing construction, interior design, and roofing projects, specializing in woodworking and construction techniques.</p>
-    </div>
-    <div class="job">
-        <h3>Mechanical Engineering Intern - Voith Turbo BHS Getriebe GmbH (Jan 2015 – Aug 2015)</h3>
-        <p>Designed, built, and tested a pneumatic sorting machine. Worked on the development and assembly of mechanical systems.</p>
-    </div>
-    <div class="job">
-        <h3>Ski Instructor & Executive Management Assitance - Erste Skischule Bolsterlang (Dec 2014 – Present)</h3>
-        <p>Manage school operations, train instructors, and teach all levels of skiing. Lead the kids ski team and ensured safety and performance standards.</p>
-    </div>
-</section>
+    <!-- Education Section -->
+    <section id="education" class="education container">
+        <h2 class="section-title">Education</h2>
+        <div class="job">
+            <h3>Master of Engineering - Systems Engineering and Management</h3>
+            <p class="job-meta">Technische Hochschule Ulm, Germany | 2021 - 2024</p>
+            <p>Advanced studies in systems engineering, focusing on product development, automation, and management principles.</p>
+        </div>
+        <div class="job">
+            <h3>Bachelor of Science - Mechatronics</h3>
+            <p class="job-meta">Management Center Innsbruck, Austria | 2017 - 2020</p>
+            <p>Comprehensive education in mechanical engineering, electronics, and control systems with business management components.</p>
+        </div>
+        <div class="job">
+            <h3>Technical High School Diploma</h3>
+            <p class="job-meta">Fachoberschule Sonthofen, Germany | 2014 - 2016</p>
+            <p>Technical foundation in engineering principles and mathematics.</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience container">
+        <h2 class="section-title">Professional Experience</h2>
+        
+        <div class="job">
+            <h3>Product Development Engineer</h3>
+            <p class="job-meta">Geiger GKS, Kempten, Germany | June 2025 - Present</p>
+            <p>Lead complete product development cycle for robotic pipe refurbishment technology, coordinating CAD design workflows, supplier relationships, university research partnerships, and patent filing processes.</p>
+        </div>
+
+        <div class="job">
+            <h3>Research Assistant - Master Thesis</h3>
+            <p class="job-meta">Embry Riddle Aeronautical University, Florida, USA | August 2023 - January 2024</p>
+            <p>Developed and implemented a soft robotic system with a novel tip-based fluidization mechanism, integrating mechanical design, 3D printing, and embedded systems. Conducted testing and data analysis to validate performance, advancing motion techniques in vine robotics.</p>
+        </div>
+
+        <div class="job">
+            <h3>R&D Engineer</h3>
+            <p class="job-meta">MinCam GmbH, Immenstadt, Germany | January 2020 - December 2022</p>
+            <p>Led product development projects, utilizing CAD software (Inventor, SolidWorks) for design and 3D printing, milling, and turning for prototyping. Developed novel mechanisms and optimized parts through iterative testing, reducing costs, and improving product quality.</p>
+        </div>
+
+        <div class="job">
+            <h3>Lean Engineer</h3>
+            <p class="job-meta">MinCam GmbH, Immenstadt, Germany | January 2020 - December 2022</p>
+            <p>Led a team to optimize production processes by applying lean engineering techniques. Designing and implementing innovative machinery that reduced assembly time and significantly cut production costs, resulting in improved working conditions, efficiency, and throughput.</p>
+        </div>
+
+        <div class="job">
+            <h3>Bachelor Thesis - Product Development</h3>
+            <p class="job-meta">MinCam GmbH, Immenstadt, Germany | January 2020 - December 2022</p>
+            <p>Developed a product concept for steering inspection cameras using morphological analysis with design and rapid prototyping, resulting in a novel steering concept for inspection cameras.</p>
+        </div>
+
+        <div class="job">
+            <h3>Mechanical Engineering Internship</h3>
+            <p class="job-meta">BBS Automation, Blaichach, Germany | July 2019 - August 2019</p>
+            <p>Worked in the R&D department to find solutions to unique problems in production machines. Designed and tested an aspiration adapter in a laser welding machine.</p>
+        </div>
+
+        <div class="job">
+            <h3>Formula Student Engineering</h3>
+            <p class="job-meta">Campus Tirol Motorsport, Innsbruck, Austria | October 2018 - December 2019</p>
+            <p>CAD-Designed (Siemens NX), mounted, and tested various fixtures. Responsible for the BLDC controller setup.</p>
+        </div>
+
+        <div class="job">
+            <h3>Mechanical Engineering Intern</h3>
+            <p class="job-meta">Voith Turbo BHS Getriebe GmbH, Sonthofen, Germany | January 2015 - August 2015</p>
+            <p>Designed, built, and tested a pneumatic sorting machine. The machine was designed on a drawing board and built using conventional milling and turning machines as well as festo pneumatics, resulting in the most novel and compact machine seen so far.</p>
+        </div>
+
+        <div class="job">
+            <h3>Electrical Engineering Intern</h3>
+            <p class="job-meta">BBS Automation, Blaichach, Germany | September 2014 - January 2015</p>
+            <p>Helped in electrical cabinet construction, cable routing, and soldering. This allowed for the development of foundational skills in electronics (cabinet construction, cable routing, and soldering).</p>
+        </div>
+    </section>
+
+    <!-- Other Activities Section -->
+    <section id="other-activities" class="other-activities container">
+        <h2 class="section-title">Other Activities & Languages</h2>
+        <div class="activities-grid">
+            <div class="activity-item">
+                <h3>Other Employment</h3>
+                <ul>
+                    <li>Instructor Trainer and state test examiner at University of Augsburg</li>
+                    <li>Freelance Ski Instructor (Norway, Switzerland, Austria, Germany)</li>
+                    <li>Construction Worker at Zimmerei Buhl</li>
+                    <li>Freelance Raft Guide</li>
+                </ul>
+            </div>
+            <div class="activity-item">
+                <h3>Languages</h3>
+                <ul>
+                    <li><strong>German:</strong> Native</li>
+                    <li><strong>English:</strong> Fluent (C1)</li>
+                    <li><strong>Norwegian:</strong> Beginner</li>
+                </ul>
+            </div>
+            <div class="activity-item">
+                <h3>Extracurricular Activities</h3>
+                <ul>
+                    <li>Fixer at Repair-Café Sonthofen</li>
+                    <li>Staatlich geprüfter Skilehrer (Level 4)</li>
+                    <li>Elected Study program representative (MCI)</li>
+                    <li>Registered Rafting Guide</li>
+                    <li>Voluntary Firefighter</li>
+                    <li>Kids Ski-Team Manager</li>
+                </ul>
+            </div>
+            <div class="activity-item">
+                <h3>Personal Interests</h3>
+                <ul>
+                    <li><strong>Professional:</strong> Product and system development</li>
+                    <li><strong>Personal:</strong> Skiing, electronic projects, outdoor sports, 3D printing, cooking, handcrafting</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact container">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a></p>
+            <p><strong>Phone:</strong> (+49) 157 3746 3621</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lukas-hiltensberger-b201451b4/">linkedin.com/in/lukas-hiltensberger-b201451b4</a></p>
+            <p><strong>Website:</strong> <a href="http://www.hiltensberger.eu/engineering">hiltensberger.eu/engineering</a></p>
+            <p><strong>Location:</strong> Norway/Germany</p>
+        </div>
+        
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Lukas Hiltensberger. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
