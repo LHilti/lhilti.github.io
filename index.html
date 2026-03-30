@@ -1,45 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukas Hiltensberger</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-        }
-        h1 {
-            font-size: 2.5em;
-        }
-        a {
-            display: block;
-            margin: 20px 0;
-            padding: 15px 25px;
-            background-color: #333;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guiding · Engineering</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; overflow: hidden; }
+
+    body { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ── SPLIT LAYOUT ── */
+    .split {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+
+    .panel {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: width 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      text-decoration: none;
+      display: block;
+    }
+
+    .split:has(.panel:hover) .panel:not(:hover) { width: 40%; }
+    .split:has(.panel:hover) .panel:hover        { width: 60%; }
+
+    /* ── BACKGROUNDS ── */
+    .panel__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  filter   0.75s ease;
+      filter: grayscale(15%) brightness(0.40);
+    }
+
+    .panel:hover .panel__bg {
+      transform: scale(1.05);
+      filter: grayscale(0%) brightness(0.50);
+    }
+
+    .panel--guiding .panel__bg {
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1600&q=80&auto=format&fit=crop');
+    }
+
+    .panel--engineering .panel__bg {
+      background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80&auto=format&fit=crop');
+    }
+
+    /* ── GRADIENT OVERLAY ── */
+    .panel__overlay {
+      position: absolute;
+      inset: 0;
+    }
+
+    .panel--guiding .panel__overlay {
+      background: linear-gradient(160deg, rgba(8,18,10,0.20) 0%, rgba(0,0,0,0.62) 100%);
+    }
+
+    .panel--engineering .panel__overlay {
+      background: linear-gradient(200deg, rgba(8,10,20,0.20) 0%, rgba(0,0,0,0.62) 100%);
+    }
+
+    /* ── TEXT CONTENT ── */
+    .panel__content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3.5rem 4rem 5.5rem;
+    }
+
+    .panel__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(220, 215, 200, 0.30);
+      margin-bottom: 0.8rem;
+      transition: color 0.4s ease;
+    }
+
+    .panel:hover .panel__label {
+      color: rgba(220, 215, 200, 0.52);
+    }
+
+    .panel__title {
+      font-weight: 300;
+      font-size: clamp(2.8rem, 3.8vw, 4.6rem);
+      line-height: 1.0;
+      color: rgba(235, 228, 215, 0.75);
+      letter-spacing: 0.01em;
+      transition: color 0.4s ease;
+    }
+
+    .panel:hover .panel__title {
+      color: rgba(235, 228, 215, 0.93);
+    }
+
+    .panel__arrow {
+      display: inline-block;
+      margin-top: 1.1rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      color: rgba(220, 215, 200, 0.0);
+      text-transform: uppercase;
+      transition: color 0.45s ease, transform 0.45s ease;
+      transform: translateX(-8px);
+    }
+
+    .panel:hover .panel__arrow {
+      color: rgba(220, 215, 200, 0.45);
+      transform: translateX(0);
+    }
+
+    /* ── DIVIDER LINE ── */
+    .divider {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(200, 195, 182, 0.10);
+      transform: translateX(-50%);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* ── CV BUTTON ── */
+    .cv-btn {
+      position: fixed;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 195, 182, 0.20);
+      background: rgba(8, 8, 10, 0.52);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      text-decoration: none;
+      transition: border-color 0.4s ease,
+                  background   0.4s ease,
+                  transform    0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  box-shadow   0.4s ease;
+    }
+
+    .cv-btn:hover {
+      border-color: rgba(200, 195, 182, 0.48);
+      background: rgba(16, 16, 18, 0.72);
+      transform: translateX(-50%) scale(1.09);
+      box-shadow: 0 10px 44px rgba(0,0,0,0.50);
+    }
+
+    .cv-btn__sup {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(220, 215, 200, 0.35);
+      line-height: 1;
+      transition: color 0.4s ease;
+    }
+
+    .cv-btn__main {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.4rem;
+      color: rgba(235, 228, 215, 0.65);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      transition: color 0.4s ease;
+    }
+
+    .cv-btn:hover .cv-btn__sup,
+    .cv-btn:hover .cv-btn__main {
+      color: rgba(235, 228, 215, 0.92);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Lukas Hiltensberger</h1>
-        <a href="engineering.html">Engineering</a>
-        <a href="ski.html">Ski Instructor & Freeride Guide</a>
-        <a href="adventure.html">Adventure Blog</a>        
-    </div>
+
+  <div class="split">
+
+    <!-- LEFT: GUIDING -->
+    <a class="panel panel--guiding" href="/guiding">
+      <div class="panel__bg"></div>
+      <div class="panel__overlay"></div>
+      <div class="panel__content">
+        <span class="panel__label">Outdoor</span>
+        <h1 class="panel__title">Guiding</h1>
+        <span class="panel__arrow">Entdecken →</span>
+      </div>
+    </a>
+
+    <!-- RIGHT: ENGINEERING -->
+    <a class="panel panel--engineering" href="/engineering">
+      <div class="panel__bg"></div>
+      <div class="panel__overlay"></div>
+      <div class="panel__content">
+        <span class="panel__label">Technik</span>
+        <h1 class="panel__title">Engineering</h1>
+        <span class="panel__arrow">Entdecken →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- CENTER DIVIDER -->
+  <div class="divider"></div>
+
+  <!-- CV BUTTON -->
+  <a class="cv-btn" href="/cv">
+    <span class="cv-btn__sup">mein</span>
+    <span class="cv-btn__main">CV</span>
+  </a>
+
 </body>
 </html>
