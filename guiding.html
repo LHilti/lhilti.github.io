@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructing / Guiding – Lukas Hiltensberger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: rgba(235, 228, 215, 0.82);
+      --cream-dim: rgba(235, 228, 215, 0.42);
+      --cream-faint: rgba(235, 228, 215, 0.18);
+      --bg: #0b0d0c;
+      --accent: rgba(160, 185, 150, 0.7);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── BACK LINK ── */
+    .back {
+      position: fixed;
+      top: 2.2rem;
+      left: 2.5rem;
+      z-index: 100;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .back:hover { color: var(--cream); }
+    .back::before { content: '← '; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.38) grayscale(10%);
+      transform: scale(1.02);
+      animation: subtle-zoom 18s ease-out forwards;
+    }
+
+    @keyframes subtle-zoom {
+      to { transform: scale(1.0); filter: brightness(0.45) grayscale(0%); }
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,13,12,0.95) 0%, rgba(11,13,12,0.1) 55%);
+    }
+
+    .hero__content {
+      position: relative;
+      padding: 0 6rem 5rem;
+      animation: fade-up 1.2s 0.3s both ease;
+    }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero__eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .hero__title {
+      font-weight: 300;
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+    }
+
+    .hero__title em {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+
+    .hero__sub {
+      margin-top: 1.6rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--cream-dim);
+      max-width: 36rem;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    /* ── BERGWÄRTS TEXT ── */
+    .intro__tagline {
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      font-style: italic;
+      color: var(--cream-dim);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.2rem;
+      line-height: 1.4;
+    }
+
+    .intro__body {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: rgba(235, 228, 215, 0.65);
+    }
+
+    .intro__body p + p {
+      margin-top: 1.4rem;
+    }
+
+    .intro__cta {
+      display: inline-block;
+      margin-top: 2.8rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-faint);
+      padding-bottom: 3px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .intro__cta:hover {
+      color: var(--cream);
+      border-color: var(--cream-dim);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto;
+      opacity: 0.5;
+    }
+
+    /* ── BIO ── */
+    .bio__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 4rem;
+      margin-top: 2rem;
+    }
+
+    .bio__block h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    .bio__block p {
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: rgba(235, 228, 215, 0.60);
+    }
+
+    /* ── CREDENTIALS ── */
+    .cred-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem 3rem;
+    }
+
+    .cred-list li {
+      font-size: 0.98rem;
+      color: rgba(235, 228, 215, 0.55);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .cred-list li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* ── GALLERY ── */
+    .gallery-section {
+      max-width: 100%;
+      padding: 5rem 0 7rem;
+    }
+
+    .gallery-section .section-label {
+      padding: 0 6rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.75) grayscale(8%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .gallery-grid img:hover {
+      filter: brightness(0.95) grayscale(0%);
+      transform: scale(1.02);
+      z-index: 2;
+      position: relative;
+    }
+
+    .gallery-grid .wide {
+      grid-column: span 2;
+      aspect-ratio: 8/3;
+    }
+
+    /* ── FOOTER / IMPRESSUM ── */
+    footer {
+      border-top: 1px solid var(--cream-faint);
+      padding: 4rem 6rem 5rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    footer .section-label { margin-bottom: 1.8rem; }
+
+    footer p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(235, 228, 215, 0.38);
+    }
+
+    footer a {
+      color: rgba(235, 228, 215, 0.5);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-faint);
+      transition: color 0.3s ease;
+    }
+    footer a:hover { color: var(--cream); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero__content { padding: 0 2rem 4rem; }
+      section { padding: 4rem 2rem; }
+      .bio__grid, .cred-list { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid .wide { grid-column: span 2; aspect-ratio: 4/3; }
+      footer { padding: 3rem 2rem 4rem; }
+      .gallery-section .section-label { padding: 0 2rem; }
+      .back { left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="index.html">Zurück</a>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Bergwärts · Outdoor</p>
+      <h1 class="hero__title">Instructing<br><em>& Guiding</em></h1>
+      <p class="hero__sub">Ski · Freeride · Skitouren · Rafting · Alpine</p>
+    </div>
+  </div>
+
+  <!-- BERGWÄRTS INTRO -->
+  <section>
+    <p class="section-label">Was dich erwartet</p>
+    <p class="intro__tagline">Skitechnik · Freeride · Skitouren · Lawinenkurse · Langlauf</p>
+    <div class="intro__body">
+      <p>Egal ob auf oder neben der Piste, bei den BERGWÄRTS Kursen bekommst du die nötigen Tipps um die winterliche Bergwelt sicher und mit der richtigen Technik genießen zu können.</p>
+      <p>Unsere Kurse und Touren werden ausschließlich von staatlich geprüften Skilehrern und Bergführern durchgeführt, was ein Höchstmaß an Sicherheit, Spaß und Lernfortschritt gewährleistet. Hierbei beschränken wir uns nicht auf ein einziges Gebiet. Als BERGWÄRTS Gast hast du die Möglichkeit deine Spuren im gesamten Alpenraum und den Bergen und Fjorden Skandinaviens zu ziehen – immer dort, wo der Schnee gerade am besten ist.</p>
+      <p>Für Termine und Preise für dein individuelles Bergerlebnis melde dich ganz unverbindlich bei mir!</p>
+    </div>
+    <a class="intro__cta" href="mailto:adventure@hiltensberger.eu">adventure@hiltensberger.eu</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BIO -->
+  <section>
+    <p class="section-label">Über mich</p>
+    <div class="bio__grid">
+      <div class="bio__block">
+        <h3>Ski & Freeride</h3>
+        <p>Level 4 ISIA Ski Instructor mit über 12 Jahren Erfahrung – von Kids über Carving bis Park. 3 Jahre als Instructor Trainer und Freeride Guide in unberührtem Gelände.</p>
+      </div>
+      <div class="bio__block">
+        <h3>Rafting & Wasser</h3>
+        <p>9 Jahre als freiberuflicher Raftguide, zertifiziert mit IRS WI3 und VAO. Inhaber eines Svalbard Waffenscheins für arktische Touren.</p>
+      </div>
+      <div class="bio__block">
+        <h3>Alpine Sicherheit</h3>
+        <p>IFMGA Winter Aspirant Test (Österreich) – höchstes Niveau an Expertise und Sicherheit für alle geführten Unternehmungen.</p>
+      </div>
+      <div class="bio__block">
+        <h3>Einsatzgebiete</h3>
+        <p>Gesamter Alpenraum, Skandinavien (Berge & Fjorde Norwegens), Arktis (Svalbard). Immer dort, wo es am besten ist.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CREDENTIALS -->
+  <section>
+    <p class="section-label">Qualifikationen</p>
+    <ul class="cred-list">
+      <li>Level 4 ISIA Ski Instructor</li>
+      <li>Instructor Trainer (3 Jahre)</li>
+      <li>Freeride Guide</li>
+      <li>IFMGA Winter Aspirant (AT)</li>
+      <li>IRS WI3 Raftguide</li>
+      <li>VAO zertifiziert</li>
+      <li>Svalbard Waffenlizenz</li>
+      <li>12+ Jahre Bergerfahrung</li>
+    </ul>
+  </section>
+
+  <!-- GALLERY -->
+  <div class="gallery-section">
+    <p class="section-label">Galerie</p>
+    <div class="gallery-grid">
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(1).jpg" alt="Skiing" class="wide" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(1).jpeg" alt="Skiing" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(2).JPG" alt="Skiing" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/climb2.jpg" alt="Climbing" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(3).JPG" alt="Skiing" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/Ski%20(4).JPG" alt="Skiing" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(1).jpg" alt="Adventure" class="wide" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(2).jpg" alt="Adventure" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(3).jpg" alt="Adventure" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(4).jpg" alt="Adventure" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(5).jpg" alt="Adventure" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/IMG%20(6).jpg" alt="Adventure" />
+      <img src="https://raw.githubusercontent.com/LHilti/lhilti.github.io/main/climb3.jpg" alt="Climbing" />
+    </div>
+  </div>
+
+  <!-- IMPRESSUM -->
+  <footer>
+    <p class="section-label">Impressum</p>
+    <p>
+      <strong style="color: rgba(235,228,215,0.55); font-weight: 400;">Lukas Hiltensberger</strong><br>
+      Haslachweg 1, 87538 Fischen, Deutschland<br><br>
+      (+49) 157 3746 3621<br>
+      <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a><br><br>
+      Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecken.
+    </p>
+  </footer>
+
+</body>
+</html>
