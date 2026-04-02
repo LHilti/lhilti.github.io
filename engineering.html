@@ -1,523 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lukas Hiltensberger - Personal Website</title>
-    <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Engineering – Lukas Hiltensberger</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: rgba(235, 228, 215, 0.82);
+      --cream-dim: rgba(235, 228, 215, 0.42);
+      --cream-faint: rgba(235, 228, 215, 0.18);
+      --bg: #0c0d10;
+      --accent: rgba(140, 165, 200, 0.7);
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+    /* ── LANGUAGE TOGGLE ── */
+    .lang-toggle {
+      position: fixed;
+      top: 2.1rem;
+      right: 2.5rem;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+    }
+    .lang-toggle button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem 0.55rem;
+      color: var(--cream-dim);
+      font-family: inherit;
+      font-size: inherit;
+      letter-spacing: inherit;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    .lang-toggle button.active { color: var(--cream); }
+    .lang-toggle button:hover  { color: var(--cream); }
+    .lang-sep { color: var(--cream-faint); font-size: 0.5rem; pointer-events: none; }
 
-        a:hover {
-            color: #00A1FF;
-        }
+    /* ── BACK LINK ── */
+    .back {
+      position: fixed;
+      top: 2.2rem;
+      left: 2.5rem;
+      z-index: 200;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .back:hover { color: var(--cream); }
+    .back::before { content: '← '; }
 
-        h1, h2, h3 {
-            text-align: center;
-        }
+    /* ── LANGUAGE SWITCHING ── */
+    body.lang-de [data-lang="en"],
+    body.lang-en [data-lang="de"] { display: none; }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 0;
-        }
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('eng_media/image7.jpg');
+      background-size: cover;
+      background-position: center 40%;
+      filter: brightness(0.35) grayscale(15%);
+      transform: scale(1.02);
+      animation: subtle-zoom 18s ease-out forwards;
+    }
+    @keyframes subtle-zoom {
+      to { transform: scale(1.0); filter: brightness(0.45) grayscale(0%); }
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(12,13,16,0.97) 0%, rgba(12,13,16,0.08) 55%);
+    }
+    .hero__content {
+      position: relative;
+      padding: 0 6rem 5rem;
+      animation: fade-up 1.2s 0.3s both ease;
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero__eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero__title {
+      font-weight: 300;
+      font-size: clamp(3.2rem, 6vw, 6rem);
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--cream-dim);
+    }
+    .hero__sub {
+      margin-top: 1.6rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--cream-dim);
+      max-width: 38rem;
+      letter-spacing: 0.02em;
+    }
 
-        /* Navbar Styles */
-        nav {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+    /* ── SECTIONS ── */
+    section {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+    .section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-        }
+    /* ── INTRO ── */
+    .intro__tagline {
+      font-size: clamp(1.15rem, 1.8vw, 1.4rem);
+      font-style: italic;
+      color: var(--cream-dim);
+      letter-spacing: 0.04em;
+      margin-bottom: 2.2rem;
+      line-height: 1.4;
+    }
+    .intro__body {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: rgba(235, 228, 215, 0.65);
+    }
+    .intro__body p + p { margin-top: 1.4rem; }
+    .intro__cta {
+      display: inline-block;
+      margin-top: 2.8rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-faint);
+      padding-bottom: 3px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+    .intro__cta:hover { color: var(--cream); border-color: var(--cream-dim); }
 
-        nav ul li {
-            margin: 0 20px;
-        }
+    /* ── DIVIDER ── */
+    .divider {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto;
+      opacity: 0.5;
+    }
 
-        nav ul li a {
-            color: #fff;
-            font-size: 18px;
-        }
+    /* ── SERVICES GRID ── */
+    .services__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem 4rem;
+      margin-top: 2rem;
+    }
+    .service__block h3 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+    .service__block p {
+      font-size: 1.0rem;
+      line-height: 1.75;
+      color: rgba(235, 228, 215, 0.60);
+    }
 
-        nav ul li a:hover {
-            color: #00A1FF;
-        }
+    /* ── PORTFOLIO / GALLERY ── */
+    .gallery-section {
+      max-width: 100%;
+      padding: 5rem 0 3rem;
+    }
+    .gallery-section .section-label { padding: 0 6rem; }
 
-        /* Hero Section */
-        .hero {
-            background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
-            height: 100vh;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
+    /* Featured pair: big image left, tall image right */
+    .gallery-featured {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4px;
+      margin-top: 2rem;
+    }
+    .gallery-featured img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.8) grayscale(5%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    .gallery-featured img:first-child { aspect-ratio: 16/10; }
+    .gallery-featured img:last-child  { aspect-ratio: 8/10; }
+    .gallery-featured img:hover {
+      filter: brightness(0.97) grayscale(0%);
+      transform: scale(1.01);
+      z-index: 2;
+      position: relative;
+    }
 
-        .hero h1 {
-            font-size: 3.5em;
-        }
+    /* Technical drawings row */
+    .gallery-technical {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      margin-top: 4px;
+      background: var(--bg);
+    }
+    .gallery-technical img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85) grayscale(5%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+      background: #f5f3ef;
+    }
+    .gallery-technical img:hover {
+      filter: brightness(1.0) grayscale(0%);
+      transform: scale(1.02);
+      z-index: 2;
+      position: relative;
+    }
 
-        .hero p {
-            font-size: 1.2em;
-        }
+    /* Prototype row */
+    .gallery-proto {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4px;
+      margin-top: 4px;
+    }
+    .gallery-proto img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.8) grayscale(5%);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    .gallery-proto img:first-child { aspect-ratio: 3/4; }
+    .gallery-proto img:last-child  { aspect-ratio: 3/2; }
+    .gallery-proto img:hover {
+      filter: brightness(0.97) grayscale(0%);
+      z-index: 2;
+      position: relative;
+    }
 
-        /* About Section */
-        .about, .skills, .experience, .contact, .gallery, .education {
-            padding: 60px 0;
-        }
+    /* ── MORE NOTE ── */
+    .more-note {
+      text-align: center;
+      padding: 3rem 0 5rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream-faint);
+    }
 
-        .section-title {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--cream-faint);
+      padding: 4rem 6rem 5rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    footer .section-label { margin-bottom: 1.8rem; }
+    footer p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: rgba(235, 228, 215, 0.38);
+    }
+    footer a {
+      color: rgba(235, 228, 215, 0.5);
+      text-decoration: none;
+      border-bottom: 1px solid var(--cream-faint);
+      transition: color 0.3s ease;
+    }
+    footer a:hover { color: var(--cream); }
 
-        .about p {
-            font-size: 1.1em;
-            text-align: center;
-            max-width: 800px;
-            margin: 20px auto;
-        }
-
-        /* Skills Section */
-        .skills .skill-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .skill-item {
-            flex-basis: 48%;
-        }
-
-        .skill-item h3 {
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
-        .bar {
-            background: #e0e0e0;
-            height: 10px;
-            border-radius: 5px;
-            position: relative;
-        }
-
-        .bar-fill {
-            height: 100%;
-            background: #00A1FF;
-            border-radius: 5px;
-            position: absolute;
-        }
-
-        /* Experience/Education Section */
-        .experience .job, .education .job {
-            background-color: #fff;
-            margin: 20px 0;
-            padding: 20px;
-            border-left: 5px solid #00A1FF;
-        }
-
-        .job h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
-
-        .job p {
-            margin-bottom: 10px;
-        }
-
-        .job-meta {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        /* Gallery Section */
-        .gallery img {
-            width: 30%;
-            margin: 1%;
-            border-radius: 10px;
-        }
-
-        /* Contact Section */
-        .contact form {
-            max-width: 600px;
-            margin: auto;
-        }
-
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
-
-        .contact button {
-            width: 100%;
-            padding: 10px;
-            background-color: #00A1FF;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
-
-        .contact button:hover {
-            background-color: #0077cc;
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .contact-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: #fff;
-        }
-
-        /* Other Activities Section */
-        .other-activities {
-            background-color: #fff;
-            padding: 60px 0;
-        }
-
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .activity-item {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border-left: 5px solid #00A1FF;
-        }
-
-        .activity-item h3 {
-            text-align: left;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .activity-item ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .activity-item li {
-            margin-bottom: 5px;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .skills .skill-item {
-                flex-basis: 100%;
-            }
-
-            .gallery img {
-                width: 48%;
-            }
-
-            .hero h1 {
-                font-size: 2.5em;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .gallery img {
-                width: 100%;
-            }
-        }
-    </style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero__content { padding: 0 2rem 4rem; }
+      section { padding: 4rem 2rem; }
+      .services__grid { grid-template-columns: 1fr; }
+      .gallery-featured { grid-template-columns: 1fr; }
+      .gallery-featured img:last-child { aspect-ratio: 16/9; }
+      .gallery-technical { grid-template-columns: 1fr 1fr; }
+      .gallery-proto { grid-template-columns: 1fr; }
+      footer { padding: 3rem 2rem 4rem; }
+      .gallery-section .section-label { padding: 0 2rem; }
+      .back { left: 1.5rem; }
+      .lang-toggle { right: 1.5rem; }
+    }
+  </style>
 </head>
-<body>
+<body class="lang-en">
 
-    <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#other-activities">Activities</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1><a href="https://www.linkedin.com/in/lukas-hiltensberger-b201451b4/">Lukas Hiltensberger</a></h1>
-        <p>M.Eng. Systems Engineering and Management</p>
-        <p>Product Development Engineer | Innovator | Ski Instructor | Adventurer</p>
-    </section>
+  <a class="back" href="index.html">
+    <span data-lang="en">Back</span>
+    <span data-lang="de">Zurück</span>
+  </a>
 
-    <!-- About Section -->
-    <section id="about" class="about container">
-        <h2 class="section-title">About Me</h2>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <span class="lang-sep">/</span>
+    <button id="btn-de" onclick="setLang('de')">DE</button>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Systems · Mechanical · Robotics</p>
+      <h1 class="hero__title">Engineering<br><em>&amp; Design</em></h1>
+      <p class="hero__sub">
+        <span data-lang="en">Product Development · CAD · Prototyping · Patent Applications</span>
+        <span data-lang="de">Produktentwicklung · CAD · Prototyping · Patentanmeldung</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section>
+    <p class="section-label">
+      <span data-lang="en">What I offer</span>
+      <span data-lang="de">Was ich anbiete</span>
+    </p>
+    <p class="intro__tagline">
+      <span data-lang="en">Product Development · Conceptualisation · Patent Applications · Prototyping · CAD Contract Work</span>
+      <span data-lang="de">Produktentwicklung · Konzeptionierung · Patentanmeldung · Prototyping · CAD Lohnarbeit</span>
+    </p>
+    <div class="intro__body">
+      <div data-lang="en">
+        <p>I'm a systems and mechanical engineer based between Germany and Norway. My focus on system design has led me through the development of robotic systems spanning aviation, piping, and machinery — from first sketch to finished prototype.</p>
+        <p>Whether you need a concept turned into a manufacturable design, a patent application supported by precise technical documentation, or CAD contract work for a specific component or assembly — I bring a methodical, detail-driven approach to every project.</p>
+        <p>Get in touch to discuss your project — no commitment required.</p>
+      </div>
+      <div data-lang="de">
+        <p>Ich bin Systems- und Maschinenbauingenieur mit Basis in Deutschland und Norwegen. Mein Schwerpunkt auf Systemdesign hat mich durch die Entwicklung robotischer Systeme aus den Bereichen Luftfahrt, Rohrleitungstechnik und Maschinenbau geführt — vom ersten Entwurf bis zum fertigen Prototyp.</p>
+        <p>Ob du ein Konzept in ein fertigungsgerechtes Design überführen, eine Patentanmeldung mit präziser technischer Dokumentation unterstützen oder CAD-Lohnarbeit für ein bestimmtes Bauteil oder eine Baugruppe benötigst — ich bringe einen methodischen, detailorientierten Ansatz in jedes Projekt.</p>
+        <p>Melde dich gerne unverbindlich, um dein Projekt zu besprechen.</p>
+      </div>
+    </div>
+    <a class="intro__cta" href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SERVICES -->
+  <section>
+    <p class="section-label">
+      <span data-lang="en">Services</span>
+      <span data-lang="de">Leistungen</span>
+    </p>
+    <div class="services__grid">
+      <div class="service__block">
+        <h3><span data-lang="en">Product Development</span><span data-lang="de">Produktentwicklung</span></h3>
         <p>
-            Innovative, hands on engineer experienced in the development of electrical and mechanical hardware products, 
-            with a strong drive to bring innovations to market.
+          <span data-lang="en">End-to-end development from concept to functional prototype. System-level thinking across mechanical, structural, and kinematic challenges.</span>
+          <span data-lang="de">Ganzheitliche Entwicklung vom Konzept bis zum funktionsfähigen Prototyp. Systemübergreifendes Denken in mechanischen, strukturellen und kinematischen Fragestellungen.</span>
         </p>
+      </div>
+      <div class="service__block">
+        <h3><span data-lang="en">CAD &amp; Technical Drawing</span><span data-lang="de">CAD &amp; Technische Zeichnung</span></h3>
         <p>
-            Based between Norway and Germany, I bring a unique blend of technical expertise, outdoor adventure experience, 
-            and international perspective to every project I undertake.
+          <span data-lang="en">Precision 3D modelling, assembly design, and manufacturing-ready technical drawings. Contract work for individual components or full assemblies.</span>
+          <span data-lang="de">Präzise 3D-Modellierung, Baugruppendesign und fertigungsgerechte technische Zeichnungen. Lohnarbeit für Einzelteile oder komplette Baugruppen.</span>
         </p>
-        <p>Feel free to reach out: <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a> | 
-        <a href="http://www.hiltensberger.eu/engineering">hiltensberger.eu/engineering</a></p>
-    </section>
+      </div>
+      <div class="service__block">
+        <h3><span data-lang="en">Prototyping</span><span data-lang="de">Prototyping</span></h3>
+        <p>
+          <span data-lang="en">Physical prototype realisation to validate concepts and mechanics. Experience with custom robotic actuators, flexible mechanisms, and embedded electronics.</span>
+          <span data-lang="de">Physische Prototypenrealisierung zur Validierung von Konzepten und Mechanik. Erfahrung mit robotischen Aktuatoren, flexiblen Mechanismen und eingebetteter Elektronik.</span>
+        </p>
+      </div>
+      <div class="service__block">
+        <h3><span data-lang="en">Patent Applications</span><span data-lang="de">Patentanmeldung</span></h3>
+        <p>
+          <span data-lang="en">Technical documentation and drawing preparation to support patent filings. Clear, precise representation of inventive concepts and claim-relevant details.</span>
+          <span data-lang="de">Technische Dokumentation und Zeichnungserstellung zur Unterstützung von Patentanmeldungen. Klare, präzise Darstellung erfinderischer Konzepte und anspruchsrelevanter Details.</span>
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills container">
-        <h2 class="section-title">Technical Skills</h2>
-        <div class="skill-container">
-            <div class="skill-item">
-                <h3>Product Innovation (Design, Market and Patent Research)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 90%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>CAD Experience (4+ Years: Inventor, SolidWorks, Catia)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 95%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>FEM (Inventor, Ansys)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 70%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Programming (C++, Matlab, Java)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 70%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Systems Engineering (Rational Rhapsody SysML, INCOSE)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 60%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Documentation (MS Office, LaTeX)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 95%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Machining (Lathe Turning, Milling)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 80%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>3D Printing (FDM, SLA)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 90%;"></div>
-                </div>
-            </div>
-            <div class="skill-item">
-                <h3>Electronics (Soldering, Troubleshooting)</h3>
-                <div class="bar">
-                    <div class="bar-fill" style="width: 80%;"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- PORTFOLIO -->
+  <div class="gallery-section">
+    <p class="section-label">
+      <span data-lang="en">Portfolio</span>
+      <span data-lang="de">Portfolio</span>
+    </p>
 
-    <!-- Education Section -->
-    <section id="education" class="education container">
-        <h2 class="section-title">Education</h2>
-        <div class="job">
-            <h3>Master Thesis - Vine Robotics</h3>
-            <p class="job-meta">Embry Riddle Aeronautical University, Florida | 2023 - 2024</p>
-        </div>
-        <div class="job">
-            <h3>Master of Engineering - Systems Engineering and Management (M.Eng.)</h3>
-            <p class="job-meta">Technische Hochschule Ulm, Germany | 2021 - 2024</p>
-        </div>
-        <div class="job">
-            <h3>Bachelor of Science - Mechatronics (B.Sc.)</h3>
-            <p class="job-meta">Management Center Innsbruck, Austria | 2017 - 2020</p>
-        </div>
-        <div class="job">
-            <h3>Technical High School Diploma</h3>
-            <p class="job-meta">Fachoberschule Sonthofen, Germany | 2014 - 2016</p>
-        </div>
-    </section>
+    <!-- UAV renders -->
+    <div class="gallery-featured">
+      <img src="eng_media/image7.jpg" alt="UAV render in flight" />
+      <img src="eng_media/image6.jpg" alt="UAV CAD model" />
+    </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience container">
-        <h2 class="section-title">Professional Experience</h2>
-        
-        <div class="job">
-            <h3>Product Development Engineer</h3>
-            <p class="job-meta">Geiger GKS, Kempten Germany | Jun 2025 - Present</p>
-            <p>Manage product development for novel robotic pipe refurbishment technology, coordinating CAD design, supplier relationships, research partnerships, and patent filing processes.</p>
-        </div>
+    <!-- Technical drawings -->
+    <div class="gallery-technical">
+      <img src="eng_media/image1.jpg" alt="Robotic camera system CAD" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
+      <img src="eng_media/image2.jpg" alt="Mechanical cross-section drawing" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
+      <img src="eng_media/image11.jpg" alt="Technical drawing BHS Getriebe" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
+    </div>
 
-        <div class="job">
-            <h3>Research Assistant - Master Thesis</h3>
-            <p class="job-meta">Embry Riddle Aeronautical University, Florida | Aug 2023 - Jan 2024</p>
-            <p>Developed and implemented a soft robotic system with a novel tip-based fluidization mechanism, integrating mechanical design, 3D printing, and embedded systems. Conducted testing and data analysis to validate performance, advancing motion techniques in vine robotics.</p>
-        </div>
+    <!-- Prototype + sketch -->
+    <div class="gallery-proto">
+      <img src="eng_media/image4.jpg" alt="Physical prototype – flexible robotic arm" />
+      <img src="eng_media/image5.jpg" alt="Early concept sketch" style="object-fit:contain; background:#f0ede8;" />
+    </div>
+  </div>
 
-        <div class="job">
-            <h3>R&D Engineer</h3>
-            <p class="job-meta">MinCam, Immenstadt Germany | Jan 2020 - Dec 2022</p>
-            <p>Led product development projects, utilizing CAD software (Inventor, SolidWorks) for design and 3D printing, milling, and turning for prototyping. Developed novel mechanisms and optimized parts through iterative testing, reducing costs, and improving product quality.</p>
-        </div>
+  <p class="more-note">
+    <span data-lang="en">Further projects &amp; references available on request</span>
+    <span data-lang="de">Weitere Projekte &amp; Referenzen auf Anfrage</span>
+  </p>
 
-        <div class="job">
-            <h3>Lean Engineer</h3>
-            <p class="job-meta">MinCam, Immenstadt Germany | Jan 2020 - Dec 2022</p>
-            <p>Led a team to optimize production processes by applying lean engineering techniques. Designing and implementing innovative machinery that reduced assembly time and significantly cut production costs, resulting in improved working conditions, efficiency, and throughput.</p>
-        </div>
+  <!-- FOOTER -->
+  <footer>
+    <p class="section-label">
+      <span data-lang="en">Legal Notice</span>
+      <span data-lang="de">Impressum</span>
+    </p>
+    <p>
+      <strong style="color: rgba(235,228,215,0.55); font-weight: 400;">Lukas Hiltensberger</strong><br>
+      Haslachweg 1, 87538 Fischen, <span data-lang="en">Germany</span><span data-lang="de">Deutschland</span><br><br>
+      (+49) 157 3746 3621<br>
+      <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a><br><br>
+      <span data-lang="en">All content on this website is for informational purposes only.</span>
+      <span data-lang="de">Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecken.</span>
+    </p>
+  </footer>
 
-        <div class="job">
-            <h3>Bachelor Thesis</h3>
-            <p class="job-meta">MinCam, Immenstadt Germany | Jan 2020 - Dec 2022</p>
-            <p>Developed a product concept for steering inspection cameras. This was done using morphological analysis with design and rapid prototyping, resulting in a novel steering concept for inspection cameras.</p>
-        </div>
-
-        <div class="job">
-            <h3>Mechanical Engineering Internship</h3>
-            <p class="job-meta">BBS Automation, Blaichach Germany | Jul 2019 - Aug 2019</p>
-            <p>Worked in the R&D department to find solutions to unique problems in production machines. Designed and tested an aspiration adapter in a laser welding machine.</p>
-        </div>
-
-        <div class="job">
-            <h3>Formula Student Engineering</h3>
-            <p class="job-meta">Campus Tirol Motorsport, Innsbruck Austria | Oct 2018 - Dec 2019</p>
-            <p>CAD-Designed (Siemens NX), mounted, and tested various fixtures. Responsible for the BLDC controller setup.</p>
-        </div>
-
-        <div class="job">
-            <h3>Intern and Assistant</h3>
-            <p class="job-meta">Der Seilbahnprofi / Ropeway Engineer, Sonthofen Germany | Aug 2015 - Aug 2016</p>
-            <p>Worked to create documents for the approval process of ropeway systems.</p>
-        </div>
-
-        <div class="job">
-            <h3>Mechanical Engineering Intern</h3>
-            <p class="job-meta">Voith Turbo BHS Getriebe, Sonthofen Germany | Jan 2015 - Aug 2015</p>
-            <p>Designed, built, and tested a pneumatic sorting machine. The machine was designed on a drawing board and built using milling and turning machines as well as Festo pneumatics, resulting in a novel and compact machine.</p>
-        </div>
-
-        <div class="job">
-            <h3>Electrical Engineering Intern</h3>
-            <p class="job-meta">BBS Automation, Blaichach Germany | Sep 2014 - Jan 2015</p>
-            <p>Helped in electrical cabinet construction, cable routing, and soldering. This allowed for the development of foundational skills in electronics (cabinet construction, cable routing, and soldering).</p>
-        </div>
-    </section>
-
-    <!-- Other Activities Section -->
-    <section id="other-activities" class="other-activities container">
-        <h2 class="section-title">Other Activities & Languages</h2>
-        <div class="activities-grid">
-            <div class="activity-item">
-                <h3>Other Employment</h3>
-                <ul>
-                    <li>Instructor Trainer and state test examiner at University of Augsburg</li>
-                    <li>Freelance Ski Instructor (Norway, Switzerland, Austria, Germany)</li>
-                    <li>Construction Worker at Zimmerei Buhl</li>
-                    <li>Freelance Raft Guide</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Languages</h3>
-                <ul>
-                    <li><strong>German:</strong> Native</li>
-                    <li><strong>English:</strong> Fluent (C1)</li>
-                    <li><strong>Norwegian:</strong> Beginner</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Extracurricular Activities</h3>
-                <ul>
-                    <li>Fixer at Repair-Café Sonthofen</li>
-                    <li>Level 4 Ski Instructor (Staatlich geprüft)</li>
-                    <li>Elected Study program representative (MCI)</li>
-                    <li>Registered Rafting Guide</li>
-                    <li>Voluntary Firefighter</li>
-                    <li>Kids Ski-Team Manager</li>
-                </ul>
-            </div>
-            <div class="activity-item">
-                <h3>Interests</h3>
-                <ul>
-                    <li><strong>Professional:</strong> Product and system development</li>
-                    <li><strong>Personal:</strong> Skiing, electronic projects, cooking, outdoor sports, 3D printing, handcrafting</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a></p>
-            <p><strong>Phone:</strong> (+49) 157 3746 3621</p>
-            <p><strong>Website:</strong> <a href="http://www.hiltensberger.eu/engineering">www.hiltensberger.eu/engineering</a></p>
-            <p><strong>Location:</strong> Norway/Germany</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Lukas Hiltensberger. All rights reserved.</p>
-    </footer>
+  <script>
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+      document.documentElement.lang = lang;
+    }
+  </script>
 
 </body>
 </html>
