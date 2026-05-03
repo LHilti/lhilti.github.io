@@ -85,7 +85,7 @@
     .hero__bg {
       position: absolute;
       inset: 0;
-      background-image: url('eng_media/image7.jpg');
+      background-image: url('eng_media/Engineering (2).jpg');
       background-size: cover;
       background-position: center 40%;
       filter: brightness(0.35) grayscale(15%);
@@ -212,61 +212,88 @@
       color: rgba(235, 228, 215, 0.60);
     }
 
-    /* ── PORTFOLIO / GALLERY ── */
+    /* ── GALLERY WRAPPER ── */
     .gallery-section {
       max-width: 100%;
       padding: 5rem 0 3rem;
     }
     .gallery-section .section-label { padding: 0 6rem; }
 
-    /* Featured pair: big image left, tall image right */
-    .gallery-featured {
+    /* ── Gallery: VTOL — hero pair (big left, tall right) ── */
+    .gallery-vtol-hero {
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 4px;
       margin-top: 2rem;
     }
-    .gallery-featured img {
+    .gallery-vtol-hero img {
       width: 100%;
       object-fit: cover;
       display: block;
       filter: brightness(0.8) grayscale(5%);
       transition: filter 0.5s ease, transform 0.5s ease;
     }
-    .gallery-featured img:first-child { aspect-ratio: 16/10; }
-    .gallery-featured img:last-child  { aspect-ratio: 8/10; }
-    .gallery-featured img:hover {
+    .gallery-vtol-hero img:first-child { aspect-ratio: 16/10; }
+    .gallery-vtol-hero img:last-child  { aspect-ratio: 8/10; }
+    .gallery-vtol-hero img:hover {
       filter: brightness(0.97) grayscale(0%);
       transform: scale(1.01);
       z-index: 2;
       position: relative;
     }
 
-    /* Technical drawings row */
+    /* ── Gallery: VTOL — wide full-bleed strip ── */
+    .gallery-vtol-wide {
+      margin-top: 4px;
+    }
+    .gallery-vtol-wide img {
+      width: 100%;
+      aspect-ratio: 21/8;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.8) grayscale(5%);
+      transition: filter 0.5s ease;
+    }
+    .gallery-vtol-wide img:hover {
+      filter: brightness(0.97) grayscale(0%);
+    }
+
+    /* ── Gallery section label (inline, between clusters) ── */
+    .gallery-sub-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.6;
+      padding: 3rem 6rem 1.4rem;
+    }
+
+    /* ── Gallery: Inspection camera — technical drawings row (3 up) ── */
     .gallery-technical {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 4px;
-      margin-top: 4px;
       background: var(--bg);
     }
     .gallery-technical img {
       width: 100%;
       aspect-ratio: 4/3;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
-      filter: brightness(0.85) grayscale(5%);
+      background: #f0ede8;
+      padding: 1.2rem;
+      filter: brightness(0.92);
       transition: filter 0.5s ease, transform 0.5s ease;
-      background: #f5f3ef;
     }
     .gallery-technical img:hover {
-      filter: brightness(1.0) grayscale(0%);
+      filter: brightness(1.0);
       transform: scale(1.02);
       z-index: 2;
       position: relative;
     }
 
-    /* Prototype row */
+    /* ── Gallery: Inspection camera — prototype pair ── */
     .gallery-proto {
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -325,12 +352,14 @@
       .hero__content { padding: 0 2rem 4rem; }
       section { padding: 4rem 2rem; }
       .services__grid { grid-template-columns: 1fr; }
-      .gallery-featured { grid-template-columns: 1fr; }
-      .gallery-featured img:last-child { aspect-ratio: 16/9; }
+      .gallery-vtol-hero { grid-template-columns: 1fr; }
+      .gallery-vtol-hero img:last-child { aspect-ratio: 16/9; }
+      .gallery-vtol-wide img { aspect-ratio: 16/9; }
       .gallery-technical { grid-template-columns: 1fr 1fr; }
       .gallery-proto { grid-template-columns: 1fr; }
       footer { padding: 3rem 2rem 4rem; }
-      .gallery-section .section-label { padding: 0 2rem; }
+      .gallery-section .section-label,
+      .gallery-sub-label { padding: 0 2rem; }
       .back { left: 1.5rem; }
       .lang-toggle { right: 1.5rem; }
     }
@@ -349,7 +378,7 @@
     <button id="btn-de" onclick="setLang('de')">DE</button>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO: VTOL render 1 as background -->
   <div class="hero">
     <div class="hero__bg"></div>
     <div class="hero__overlay"></div>
@@ -428,31 +457,57 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- ═══════════════════════════════════════════════
+       PORTFOLIO
+  ════════════════════════════════════════════════ -->
   <div class="gallery-section">
     <p class="section-label">
       <span data-lang="en">Portfolio</span>
       <span data-lang="de">Portfolio</span>
     </p>
 
-    <!-- UAV renders -->
-    <div class="gallery-featured">
-      <img src="eng_media/image7.jpg" alt="UAV render in flight" />
-      <img src="eng_media/image6.jpg" alt="UAV CAD model" />
+    <!-- ── PROJECT 1: VTOL ── -->
+    <!-- Sub-label -->
+    <p class="gallery-sub-label">
+      <span data-lang="en">Vertical Takeoff &amp; Landing — Design Concept</span>
+      <span data-lang="de">Senkrechtstarter — Designkonzept</span>
+    </p>
+
+    <!-- VTOL: render 1 (large left) + render 2 (tall right) -->
+    <div class="gallery-vtol-hero">
+      <img src="eng_media/Engineering (3).jpeg" alt="VTOL concept render 1" />
+      <img src="eng_media/Engineering (3).jpg"  alt="VTOL concept render 2" />
     </div>
 
-    <!-- Technical drawings -->
+    <!-- VTOL: render 3 (wide strip) -->
+    <div class="gallery-vtol-wide">
+      <img src="eng_media/Engineering (8).jpeg" alt="VTOL concept render 3" />
+    </div>
+
+    <!-- VTOL: render 4 (wide strip) -->
+    <div class="gallery-vtol-wide" style="margin-top:4px;">
+      <img src="eng_media/Engineering (12).jpeg" alt="VTOL concept render 4" />
+    </div>
+
+    <!-- ── PROJECT 2: Bendable Pipe Inspection Camera ── -->
+    <p class="gallery-sub-label" style="padding-top: 4rem;">
+      <span data-lang="en">Bendable Pipe Inspection Camera</span>
+      <span data-lang="de">Biegsame Rohrinspektion Kamera</span>
+    </p>
+
+    <!-- Technical drawings: concept + cross-section + profile feed -->
     <div class="gallery-technical">
-      <img src="eng_media/image1.jpg" alt="Robotic camera system CAD" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
-      <img src="eng_media/image2.jpg" alt="Mechanical cross-section drawing" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
-      <img src="eng_media/image11.jpg" alt="Technical drawing BHS Getriebe" style="object-fit:contain; background:#f0ede8; padding: 1rem;" />
+      <img src="eng_media/Engineering (1).jpg"  alt="Concept for bendable pipe inspection camera" />
+      <img src="eng_media/Engineering (3).jpg"  alt="Cross-section drawing of pipe inspection concept" />
+      <img src="eng_media/Engineering (1).png"  alt="Profile feeding mechanism" />
     </div>
 
-    <!-- Prototype + sketch -->
+    <!-- Prototype physical test -->
     <div class="gallery-proto">
-      <img src="eng_media/image4.jpg" alt="Physical prototype – flexible robotic arm" />
-      <img src="eng_media/image5.jpg" alt="Early concept sketch" style="object-fit:contain; background:#f0ede8;" />
+      <img src="eng_media/Engineering (11).jpeg" alt="Physical test — bendable pipe inspection camera" />
+      <img src="eng_media/Engineering (2).jpg"   alt="Profile feeding mechanism detail" style="object-fit:contain; background:#f0ede8;" />
     </div>
+
   </div>
 
   <p class="more-note">
