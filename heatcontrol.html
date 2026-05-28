@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relay Control</title>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      font-size: 24px;
+      padding: 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button.off {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Light Control</h1>
+<button id="toggleBtn">Loading...</button>
+
+<script>
+  // ✅ Your Firebase config (from your ESP32 code)
+  const firebaseConfig = {
+    apiKey: "AIzaSyCKEi-jIRiYfUe_aleQYWpXp7a_-7iDBm4",
+    databaseURL: "https://gks-heat-control-default-rtdb.europe-west1.firebasedatabase.app/"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  const btn = document.getElementById("toggleBtn");
+
+  // Listen for value changes (sync with ESP32)
+  db.ref("/LED/digital").on("value", (snapshot) => {
+    const state = snapshot.val();
+
+    if (state) {
+      btn.textContent = "ON";
+      btn.classList.remove("off");
+    } else {
+      btn.textContent = "OFF";
+      btn.classList.add("off");
+    }
+  });
+
+  // Toggle on click
+  btn.addEventListener("click", () => {
+    db.ref("/LED/digital").once("value").then((snapshot) => {
+      const current = snapshot.val();
+      db.ref("/LED/digital").set(!current);
+    });
+  });
+</script>
+
+</body>
+</html>
