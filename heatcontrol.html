@@ -1,70 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <title>Relay Control</title>
+  <meta charset="UTF-8">
+  <title>ESP32 Temperatur Dashboard</title>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
   <style>
     body {
-      font-family: Arial;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
       text-align: center;
-      margin-top: 50px;
+    }
+
+    .value {
+      font-size: 2em;
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 1em;
     }
 
     button {
-      font-size: 24px;
-      padding: 20px;
-      background-color: green;
-      color: white;
-      border: none;
-      border-radius: 10px;
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      font-size: 1em;
+      cursor: pointer;
     }
 
-    button.off {
-      background-color: red;
+    .on {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .off {
+      background: #f44336;
+      color: white;
     }
   </style>
 </head>
 <body>
 
-<h1>Light Control</h1>
-<button id="toggleBtn">Loading...</button>
+<div class="card">
+  <h1>Temperatur</h1>
+
+  <div class="value">
+    <span id="tempIs">--.-</span> °C
+  </div>
+
+  <button id="switchBtn" class="off">Heizung AUS</button>
+
+  <label for="tempShould">Soll‑Temperatur (°C)</label>
+  <input type="number" id="tempShould" step="0.1">
+</div>
 
 <script>
-  // ✅ Your Firebase config (from your ESP32 code)
+  /* ===================== FIREBASE CONFIG ===================== */
   const firebaseConfig = {
     apiKey: "AIzaSyCKEi-jIRiYfUe_aleQYWpXp7a_-7iDBm4",
     databaseURL: "https://gks-heat-control-default-rtdb.europe-west1.firebasedatabase.app/"
   };
 
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const db = firebase.database();
 
-  const btn = document.getElementById("toggleBtn");
+  /* ===================== REFERENCES ===================== */
+  const tempIsRef = db.ref("TEMP/temp_is");
+  const switchRef = db.ref("TEMP/switch");
+  const tempShouldRef = db.ref("TEMP/temp_should");
 
-  // Listen for value changes (sync with ESP32)
-  db.ref("/LED/digital").on("value", (snapshot) => {
-    const state = snapshot.val();
+  const tempIsEl = document.getElementById("tempIs");
+  const switchBtn = document.getElementById("switchBtn");
+  const tempShouldInput = document.getElementById("tempShould");
 
-    if (state) {
-      btn.textContent = "ON";
-      btn.classList.remove("off");
-    } else {
-      btn.textContent = "OFF";
-      btn.classList.add("off");
+  /* ===================== LIVE TEMPERATURE ===================== */
+  tempIsRef.on("value", snapshot => {
+    const value = snapshot.val();
+    if (value !== null) {
+      tempIsEl.textContent = value.toFixed(1);
     }
   });
 
-  // Toggle on click
-  btn.addEventListener("click", () => {
-    db.ref("/LED/digital").once("value").then((snapshot) => {
-      const current = snapshot.val();
-      db.ref("/LED/digital").set(!current);
+  /* ===================== SWITCH ===================== */
+  switchRef.on("value", snapshot => {
+    const state = snapshot.val();
+    if (state) {
+      switchBtn.textContent = "Heizung EIN";
+      switchBtn.className = "on";
+    } else {
+      switchBtn.textContent = "Heizung AUS";
+      switchBtn.className = "off";
+    }
+  });
+
+  switchBtn.addEventListener("click", () => {
+    switchRef.get().then(snapshot => {
+      switchRef.set(!snapshot.val());
     });
+  });
+
+  /* ===================== TARGET TEMPERATURE ===================== */
+  tempShouldRef.on("value", snapshot => {
+    const value = snapshot.val();
+    if (value !== null) {
+      tempShouldInput.value = value;
+    }
+  });
+
+  tempShouldInput.addEventListener("change", () => {
+    tempShouldRef.set(parseFloat(tempShouldInput.value));
   });
 </script>
 
