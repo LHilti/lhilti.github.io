@@ -219,7 +219,7 @@
     }
     .gallery-section .section-label { padding: 0 6rem; }
 
-    /* ── Gallery: VTOL — hero pair (big left, tall right) ── */
+    /* ── Gallery: hero pair ── */
     .gallery-vtol-hero {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -242,7 +242,7 @@
       position: relative;
     }
 
-    /* ── Gallery: VTOL — wide full-bleed strip ── */
+    /* ── Gallery: wide strip ── */
     .gallery-vtol-wide {
       margin-top: 4px;
     }
@@ -258,7 +258,7 @@
       filter: brightness(0.97) grayscale(0%);
     }
 
-    /* ── Gallery section label (inline, between clusters) ── */
+    /* ── Gallery sub-label ── */
     .gallery-sub-label {
       font-family: 'Space Mono', monospace;
       font-size: 0.52rem;
@@ -269,7 +269,7 @@
       padding: 3rem 6rem 1.4rem;
     }
 
-    /* ── Gallery: Inspection camera — technical drawings row (3 up) ── */
+    /* ── Gallery: technical drawings ── */
     .gallery-technical {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -293,7 +293,7 @@
       position: relative;
     }
 
-    /* ── Gallery: Inspection camera — prototype pair ── */
+    /* ── Gallery: prototype pair ── */
     .gallery-proto {
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -378,16 +378,16 @@
     <button id="btn-de" onclick="setLang('de')">DE</button>
   </div>
 
-  <!-- HERO: VTOL render 1 as background -->
+  <!-- HERO -->
   <div class="hero">
     <div class="hero__bg"></div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <p class="hero__eyebrow">Systems · Mechanical · Robotics</p>
-      <h1 class="hero__title">Engineering<br><em></em></h1>
+      <p class="hero__eyebrow">Pipe Inspection · Robotics · Mechanical Engineering</p>
+      <h1 class="hero__title">Engineering<br><em>for the pipe industry</em></h1>
       <p class="hero__sub">
-        <span data-lang="en">Product Development · CAD · Prototyping · Patent Applications</span>
-        <span data-lang="de">Produktentwicklung · CAD · Prototyping · Patentanmeldung</span>
+        <span data-lang="en">Replacement Parts · Product Adaptation · R&D Support</span>
+        <span data-lang="de">Ersatzteile · Produktanpassung · F&E Unterstützung</span>
       </p>
     </div>
   </div>
@@ -395,23 +395,21 @@
   <!-- INTRO -->
   <section>
     <p class="section-label">
-      <span data-lang="en">What I offer</span>
-      <span data-lang="de">Was ich anbiete</span>
+      <span data-lang="en">About</span>
+      <span data-lang="de">Über mich</span>
     </p>
     <p class="intro__tagline">
-      <span data-lang="en">Product Development · Conceptualisation · Patent Applications · Prototyping · CAD Contract Work</span>
-      <span data-lang="de">Produktentwicklung · Konzeptionierung · Patentanmeldung · Prototyping · CAD Lohnarbeit</span>
+      <span data-lang="en">I'm a freelance engineer working with inspection and refurbishment equipment companies — from re-engineering a discontinued part to supporting a full development project.</span>
+      <span data-lang="de">Ich bin freiberuflicher Ingenieur und arbeite mit Unternehmen aus der Inspektion und Rohrsanierung — vom Re-Engineering eines abgekündigten Bauteils bis zur Unterstützung eines vollständigen Entwicklungsprojekts.</span>
     </p>
     <div class="intro__body">
       <div data-lang="en">
-        <p>I'm a systems and mechanical engineer based between Germany and Norway. My focus on system design has led me through the development of robotic systems spanning aviation, piping, and machinery — from first sketch to finished prototype.</p>
-        <p>Whether you need a concept turned into a manufacturable design, a patent application supported by precise technical documentation, or CAD contract work for a specific component or assembly — I bring a methodical, detail-driven approach to every project.</p>
-        <p>Get in touch to discuss your project — no commitment required.</p>
+        <p>My background is in robotic systems and mechanical product development. I've spent the last few years building things in the pipe and inspection space — which means I understand the constraints: tight tolerances, hostile environments, and equipment that has to work when it's inside a pipe.</p>
+        <p>I work directly with the people who need the part or the solution — no middlemen, no agency layer.</p>
       </div>
       <div data-lang="de">
-        <p>Ich bin Systems- und Maschinenbauingenieur mit Basis in Deutschland und Norwegen. Mein Schwerpunkt auf Systemdesign hat mich durch die Entwicklung robotischer Systeme aus den Bereichen Luftfahrt, Rohrleitungstechnik und Maschinenbau geführt — vom ersten Entwurf bis zum fertigen Prototyp.</p>
-        <p>Ob du ein Konzept in ein fertigungsgerechtes Design überführen, eine Patentanmeldung mit präziser technischer Dokumentation unterstützen oder CAD-Lohnarbeit für ein bestimmtes Bauteil oder eine Baugruppe benötigst — ich bringe einen methodischen, detailorientierten Ansatz in jedes Projekt.</p>
-        <p>Melde dich gerne unverbindlich, um dein Projekt zu besprechen.</p>
+        <p>Mein Hintergrund liegt in robotischen Systemen und mechanischer Produktentwicklung. Die letzten Jahre habe ich damit verbracht, Lösungen im Bereich Rohr- und Inspektionstechnik zu entwickeln — ich kenne die Anforderungen: enge Toleranzen, raue Umgebungen und Geräte, die funktionieren müssen, wenn sie im Rohr stecken.</p>
+        <p>Ich arbeite direkt mit den Menschen, die das Bauteil oder die Lösung brauchen — ohne Zwischenhändler.</p>
       </div>
     </div>
     <a class="intro__cta" href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a>
@@ -422,90 +420,93 @@
   <!-- SERVICES -->
   <section>
     <p class="section-label">
-      <span data-lang="en">Services</span>
+      <span data-lang="en">What I do</span>
       <span data-lang="de">Leistungen</span>
     </p>
     <div class="services__grid">
       <div class="service__block">
-        <h3><span data-lang="en">Product Development</span><span data-lang="de">Produktentwicklung</span></h3>
+        <h3>
+          <span data-lang="en">Replacement &amp; Re-engineered Parts</span>
+          <span data-lang="de">Ersatz- &amp; Re-engineered Teile</span>
+        </h3>
         <p>
-          <span data-lang="en">End-to-end development from concept to functional prototype. System-level thinking across mechanical, structural, and kinematic challenges.</span>
-          <span data-lang="de">Ganzheitliche Entwicklung vom Konzept bis zum funktionsfähigen Prototyp. Systemübergreifendes Denken in mechanischen, strukturellen und kinematischen Fragestellungen.</span>
+          <span data-lang="en">Discontinued components, hard-to-source parts, or anything that needs to be redesigned to fit an existing system. I reverse-engineer, redesign, and deliver production-ready documentation.</span>
+          <span data-lang="de">Abgekündigte Bauteile, schwer beschaffbare Teile oder alles, was neu konstruiert werden muss, um in ein bestehendes System zu passen. Ich reverse-engineere, konstruiere neu und liefere fertigungsgerechte Dokumentation.</span>
         </p>
       </div>
       <div class="service__block">
-        <h3><span data-lang="en">CAD &amp; Technical Drawing</span><span data-lang="de">CAD &amp; Technische Zeichnung</span></h3>
+        <h3>
+          <span data-lang="en">Product Adaptation</span>
+          <span data-lang="de">Produktanpassung</span>
+        </h3>
         <p>
-          <span data-lang="en">Precision 3D modelling, assembly design, and manufacturing-ready technical drawings. Contract work for individual components or full assemblies.</span>
-          <span data-lang="de">Präzise 3D-Modellierung, Baugruppendesign und fertigungsgerechte technische Zeichnungen. Lohnarbeit für Einzelteile oder komplette Baugruppen.</span>
+          <span data-lang="en">Adapting existing equipment to special pipe sizes, regional standards, or customer-specific requirements. If your product needs to work somewhere it wasn't originally designed for, that's where I come in.</span>
+          <span data-lang="de">Anpassung bestehender Geräte an besondere Rohrdurchmesser, regionale Normen oder kundenspezifische Anforderungen. Wenn dein Produkt dort funktionieren soll, wo es ursprünglich nicht vorgesehen war, bin ich der richtige Ansprechpartner.</span>
         </p>
       </div>
       <div class="service__block">
-        <h3><span data-lang="en">Prototyping</span><span data-lang="de">Prototyping</span></h3>
+        <h3>
+          <span data-lang="en">R&D Support</span>
+          <span data-lang="de">F&E Unterstützung</span>
+        </h3>
         <p>
-          <span data-lang="en">Physical prototype realisation to validate concepts and mechanics. Experience with custom robotic actuators, flexible mechanisms, and embedded electronics.</span>
-          <span data-lang="de">Physische Prototypenrealisierung zur Validierung von Konzepten und Mechanik. Erfahrung mit robotischen Aktuatoren, flexiblen Mechanismen und eingebetteter Elektronik.</span>
+          <span data-lang="en">For projects that go beyond a single part — concept development, prototyping, testing, and technical documentation. I can take on a defined scope or plug into an existing team.</span>
+          <span data-lang="de">Für Projekte, die über ein einzelnes Bauteil hinausgehen — Konzeptentwicklung, Prototyping, Testing und technische Dokumentation. Ich übernehme einen definierten Umfang oder integriere mich in ein bestehendes Team.</span>
         </p>
       </div>
       <div class="service__block">
-        <h3><span data-lang="en">Patent Applications</span><span data-lang="de">Patentanmeldung</span></h3>
+        <h3>
+          <span data-lang="en">CAD &amp; Technical Documentation</span>
+          <span data-lang="de">CAD &amp; Technische Dokumentation</span>
+        </h3>
         <p>
-          <span data-lang="en">Technical documentation and drawing preparation to support patent filings. Clear, precise representation of inventive concepts and claim-relevant details.</span>
-          <span data-lang="de">Technische Dokumentation und Zeichnungserstellung zur Unterstützung von Patentanmeldungen. Klare, präzise Darstellung erfinderischer Konzepte und anspruchsrelevanter Details.</span>
+          <span data-lang="en">Precise 3D models, manufacturing drawings, and patent-supporting documentation. Useful as a standalone service or as part of a larger project.</span>
+          <span data-lang="de">Präzise 3D-Modelle, Fertigungszeichnungen und patentunterstützende Dokumentation. Als eigenständige Leistung oder als Teil eines größeren Projekts.</span>
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════
-       PORTFOLIO
-  ════════════════════════════════════════════════ -->
+  <!-- PORTFOLIO -->
   <div class="gallery-section">
     <p class="section-label">
-      <span data-lang="en">Portfolio</span>
-      <span data-lang="de">Portfolio</span>
+      <span data-lang="en">Work</span>
+      <span data-lang="de">Projekte</span>
     </p>
 
-    <!-- ── PROJECT 1: VTOL ── -->
-    <!-- Sub-label -->
+    <!-- PROJECT 1 -->
     <p class="gallery-sub-label">
-      <span data-lang="en">Vertical Takeoff &amp; Landing — Design Concept</span>
-      <span data-lang="de">Senkrechtstarter — Designkonzept</span>
+      <span data-lang="en">Robotic Pipe Refurbishment System</span>
+      <span data-lang="de">Robotisches Rohrsanierungssystem</span>
     </p>
 
-    <!-- VTOL: render 1 (large left) + render 2 (tall right) -->
     <div class="gallery-vtol-hero">
-      <img src="Engineering (3).jpeg" alt="VTOL concept render 1" />
-      <img src="Engineering (3).jpg"  alt="VTOL concept render 2" />
+      <img src="Engineering (1).jpg" alt="Bendable Inspection Camera Concept" />
+      <img src="Engineering (1).png"  alt="Strip Feed" />
     </div>
 
-    <!-- VTOL: render 3 (wide strip) -->
     <div class="gallery-vtol-wide">
-      <img src="Engineering (8).jpeg" alt="VTOL concept render 3" />
+      <img src="Engineering (2).jpg" alt="Bendable Inspection Camera Concept" />
     </div>
 
-    <!-- VTOL: render 4 (wide strip) -->
     <div class="gallery-vtol-wide" style="margin-top:4px;">
-      <img src="Engineering (12).jpeg" alt="VTOL concept render 4" />
+      <img src="Engineering (12).jpeg" alt="Pipe refurbishment system detail" />
     </div>
 
-    <!-- ── PROJECT 2: Bendable Pipe Inspection Camera ── -->
+    <!-- PROJECT 2 -->
     <p class="gallery-sub-label" style="padding-top: 4rem;">
       <span data-lang="en">Bendable Pipe Inspection Camera</span>
       <span data-lang="de">Biegsame Rohrinspektion Kamera</span>
     </p>
 
-    <!-- Technical drawings: concept + cross-section + profile feed -->
     <div class="gallery-technical">
-      <img src="Engineering (1).jpg"  alt="Concept for bendable pipe inspection camera" />
-      <img src="Engineering (3).jpg"  alt="Cross-section drawing of pipe inspection concept" />
-      <img src="Engineering (1).png"  alt="Profile feeding mechanism" />
+      <img src="Transmission.jpg"  alt="Transmission" />
+      <img src="Validation.jpg"  alt="Validation for Research Project" />
+      <img src="Drawing.png"  alt="Drawing for Manufacturing" />
     </div>
 
-    <!-- Prototype physical test -->
     <div class="gallery-proto">
-      <img src="Engineering (11).jpeg" alt="Physical test — bendable pipe inspection camera" />
-      <img src="Engineering (2).jpg"   alt="Profile feeding mechanism detail" style="object-fit:contain; background:#f0ede8;" />
+      <img src="Roboter.png" alt="Refurbishment Robot" />
     </div>
 
   </div>
@@ -527,7 +528,7 @@
       (+49) 157 3746 3621<br>
       <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a><br><br>
       <span data-lang="en">All content on this website is for informational purposes only.</span>
-      <span data-lang="de">Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecken.</span>
+      <span data-lang="de">Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecessen.</span>
     </p>
   </footer>
 
