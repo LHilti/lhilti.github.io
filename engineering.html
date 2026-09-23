@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering – Lukas Hiltensberger</title>
+  <title>Engineering – Lukas Hiltensberger | AutoStore Application</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -269,52 +269,6 @@
       padding: 3rem 6rem 1.4rem;
     }
 
-    /* ── Gallery: technical drawings ── */
-    .gallery-technical {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
-      background: var(--bg);
-    }
-    .gallery-technical img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: contain;
-      display: block;
-      background: #f0ede8;
-      padding: 1.2rem;
-      filter: brightness(0.92);
-      transition: filter 0.5s ease, transform 0.5s ease;
-    }
-    .gallery-technical img:hover {
-      filter: brightness(1.0);
-      transform: scale(1.02);
-      z-index: 2;
-      position: relative;
-    }
-
-    /* ── Gallery: prototype pair ── */
-    .gallery-proto {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 4px;
-      margin-top: 4px;
-    }
-    .gallery-proto img {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      filter: brightness(0.8) grayscale(5%);
-      transition: filter 0.5s ease, transform 0.5s ease;
-    }
-    .gallery-proto img:first-child { aspect-ratio: 3/4; }
-    .gallery-proto img:last-child  { aspect-ratio: 3/2; }
-    .gallery-proto img:hover {
-      filter: brightness(0.97) grayscale(0%);
-      z-index: 2;
-      position: relative;
-    }
-
     /* ── MORE NOTE ── */
     .more-note {
       text-align: center;
@@ -355,8 +309,6 @@
       .gallery-vtol-hero { grid-template-columns: 1fr; }
       .gallery-vtol-hero img:last-child { aspect-ratio: 16/9; }
       .gallery-vtol-wide img { aspect-ratio: 16/9; }
-      .gallery-technical { grid-template-columns: 1fr 1fr; }
-      .gallery-proto { grid-template-columns: 1fr; }
       footer { padding: 3rem 2rem 4rem; }
       .gallery-section .section-label,
       .gallery-sub-label { padding: 0 2rem; }
@@ -383,11 +335,11 @@
     <div class="hero__bg"></div>
     <div class="hero__overlay"></div>
     <div class="hero__content">
-      <p class="hero__eyebrow">Pipe Inspection · Robotics · Mechanical Engineering</p>
-      <h1 class="hero__title">Engineering<br><em>for the pipe industry</em></h1>
+      <p class="hero__eyebrow">Warehouse Automation · Robotics · Mechanical Engineering</p>
+      <h1 class="hero__title">Engineering<br><em>for automated systems</em></h1>
       <p class="hero__sub">
-        <span data-lang="en">Replacement Parts · Product Adaptation · R&D Support</span>
-        <span data-lang="de">Ersatzteile · Produktanpassung · F&E Unterstützung</span>
+        <span data-lang="en">Product Development · R&D Support · Prototyping & Testing</span>
+        <span data-lang="de">Produktentwicklung · F&E Unterstützung · Prototyping & Testing</span>
       </p>
     </div>
   </div>
@@ -399,17 +351,17 @@
       <span data-lang="de">Über mich</span>
     </p>
     <p class="intro__tagline">
-      <span data-lang="en">I'm a freelance engineer working with inspection and refurbishment equipment companies — from re-engineering a discontinued part to supporting a full development project.</span>
-      <span data-lang="de">Ich bin freiberuflicher Ingenieur und arbeite mit Unternehmen aus der Inspektion und Rohrsanierung — vom Re-Engineering eines abgekündigten Bauteils bis zur Unterstützung eines vollständigen Entwicklungsprojekts.</span>
+      <span data-lang="en">I am a Mechatronics and Systems Engineer with a strong drive to build robust, highly reliable automation technologies.</span>
+      <span data-lang="de">Ich bin Mechatronik- und Systems Engineer mit einer Leidenschaft für die Entwicklung robuster und hochzuverlässiger Automatisierungstechnologien.</span>
     </p>
     <div class="intro__body">
       <div data-lang="en">
-        <p>My background is in robotic systems and mechanical product development. I've spent the last few years building things in the pipe and inspection space — which means I understand the constraints: tight tolerances, hostile environments, and equipment that has to work when it's inside a pipe.</p>
-        <p>I work directly with the people who need the part or the solution — no middlemen, no agency layer.</p>
+        <p>With a Master’s in Systems Engineering and a foundation in Mechatronics, my background spans robotic systems and mechanical product development. I have extensive experience taking physical products through their full lifecycle—from early concepts and 3D modeling in Autodesk Inventor, to hands-on prototyping, rigorous lab testing, and final validation.</p>
+        <p>Whether it’s developing novel mechanisms or optimizing parts for manufacturing and assembly (DFM), I understand the importance of material selection, tight tolerances, and system reliability. Based between Norway and Germany, I thrive in multidisciplinary environments and am eager to apply my skills to scalable warehouse automation.</p>
       </div>
       <div data-lang="de">
-        <p>Mein Hintergrund liegt in robotischen Systemen und mechanischer Produktentwicklung. Die letzten Jahre habe ich damit verbracht, Lösungen im Bereich Rohr- und Inspektionstechnik zu entwickeln — ich kenne die Anforderungen: enge Toleranzen, raue Umgebungen und Geräte, die funktionieren müssen, wenn sie im Rohr stecken.</p>
-        <p>Ich arbeite direkt mit den Menschen, die das Bauteil oder die Lösung brauchen — ohne Zwischenhändler.</p>
+        <p>Mein Hintergrund verbindet Robotiksysteme, Präzisionsmechanik und Systems Engineering. Ich habe umfassende Erfahrung darin, physische Produkte durch ihren gesamten Lebenszyklus zu begleiten – von ersten Konzepten und 3D-Modellierung in Autodesk Inventor über praktisches Prototyping bis hin zu strengen Labortests und der finalen Validierung.</p>
+        <p>Ob bei der Entwicklung neuartiger Mechanismen oder der fertigungsgerechten Bauteiloptimierung (DFM): Ich kenne die Bedeutung von Materialauswahl, engen Toleranzen und Systemzuverlässigkeit. Als Ingenieur mit Lebensmittelpunkt zwischen Norwegen und Deutschland arbeite ich gerne in multidisziplinären Teams und möchte meine Fähigkeiten in der skalierbaren Lagerautomatisierung einsetzen.</p>
       </div>
     </div>
     <a class="intro__cta" href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a>
@@ -417,51 +369,51 @@
 
   <div class="divider"></div>
 
-  <!-- SERVICES -->
+  <!-- SERVICES (Tailored to Job Requirements) -->
   <section>
     <p class="section-label">
-      <span data-lang="en">What I do</span>
-      <span data-lang="de">Leistungen</span>
+      <span data-lang="en">Core Competencies</span>
+      <span data-lang="de">Kernkompetenzen</span>
     </p>
     <div class="services__grid">
       <div class="service__block">
         <h3>
-          <span data-lang="en">Replacement &amp; Re-engineered Parts</span>
-          <span data-lang="de">Ersatz- &amp; Re-engineered Teile</span>
+          <span data-lang="en">Mechanical Design & 3D CAD</span>
+          <span data-lang="de">Mechanische Konstruktion & 3D CAD</span>
         </h3>
         <p>
-          <span data-lang="en">Discontinued components, hard-to-source parts, or anything that needs to be redesigned to fit an existing system. I reverse-engineer, redesign, and deliver production-ready documentation.</span>
-          <span data-lang="de">Abgekündigte Bauteile, schwer beschaffbare Teile oder alles, was neu konstruiert werden muss, um in ein bestehendes System zu passen. Ich reverse-engineere, konstruiere neu und liefere fertigungsgerechte Dokumentation.</span>
+          <span data-lang="en">Proficient in Autodesk Inventor and SolidWorks. I create robust 3D models, detailed engineering drawings, and comprehensive technical documentation ready for PLM systems and high-volume production.</span>
+          <span data-lang="de">Fundierte Kenntnisse in Autodesk Inventor und SolidWorks. Ich erstelle robuste 3D-Modelle, detaillierte Fertigungszeichnungen und technische Dokumentationen für PLM-Systeme und die Großserienproduktion.</span>
         </p>
       </div>
       <div class="service__block">
         <h3>
-          <span data-lang="en">Product Adaptation</span>
-          <span data-lang="de">Produktanpassung</span>
+          <span data-lang="en">Prototyping & Validation</span>
+          <span data-lang="de">Prototyping & Validierung</span>
         </h3>
         <p>
-          <span data-lang="en">Adapting existing equipment to special pipe sizes, regional standards, or customer-specific requirements. If your product needs to work somewhere it wasn't originally designed for, that's where I come in.</span>
-          <span data-lang="de">Anpassung bestehender Geräte an besondere Rohrdurchmesser, regionale Normen oder kundenspezifische Anforderungen. Wenn dein Produkt dort funktionieren soll, wo es ursprünglich nicht vorgesehen war, bin ich der richtige Ansprechpartner.</span>
+          <span data-lang="en">Hands-on experience with 3D printing, milling, turning, and test setups. I actively plan and execute product testing to analyze performance, validate requirements, and iterate on designs.</span>
+          <span data-lang="de">Praktische Erfahrung mit 3D-Druck, Fräsen, Drehen und Testaufbauten. Ich plane und führe Produkttests durch, um die Leistung zu analysieren, Anforderungen zu validieren und Designs zu iterieren.</span>
         </p>
       </div>
       <div class="service__block">
         <h3>
-          <span data-lang="en">R&D Support</span>
-          <span data-lang="de">F&E Unterstützung</span>
+          <span data-lang="en">Product Development Lifecycle</span>
+          <span data-lang="de">Produktentwicklung & Lebenszyklus</span>
         </h3>
         <p>
-          <span data-lang="en">For projects that go beyond a single part — concept development, prototyping, testing, and technical documentation. I can take on a defined scope or plug into an existing team.</span>
-          <span data-lang="de">Für Projekte, die über ein einzelnes Bauteil hinausgehen — Konzeptentwicklung, Prototyping, Testing und technische Dokumentation. Ich übernehme einen definierten Umfang oder integriere mich in ein bestehendes Team.</span>
+          <span data-lang="en">Taking physical products from early concepts through to mass production. I leverage my M.Eng. in Systems Engineering to evaluate structural integrity, manufacturability, and continuous product improvement.</span>
+          <span data-lang="de">Begleitung physischer Produkte von der ersten Idee bis zur Serienfertigung. Ich nutze meinen M.Eng. in Systems Engineering zur Bewertung von struktureller Integrität, Herstellbarkeit und kontinuierlicher Verbesserung.</span>
         </p>
       </div>
       <div class="service__block">
         <h3>
-          <span data-lang="en">CAD &amp; Technical Documentation</span>
-          <span data-lang="de">CAD &amp; Technische Dokumentation</span>
+          <span data-lang="en">DFM & Materials</span>
+          <span data-lang="de">DFM & Materialien</span>
         </h3>
         <p>
-          <span data-lang="en">Precise 3D models, manufacturing drawings, and patent-supporting documentation. Useful as a standalone service or as part of a larger project.</span>
-          <span data-lang="de">Präzise 3D-Modelle, Fertigungszeichnungen und patentunterstützende Dokumentation. Als eigenständige Leistung oder als Teil eines größeren Projekts.</span>
+          <span data-lang="en">Strong understanding of material properties and manufacturing requirements. Experienced in optimizing designs for injection molding, extrusion, and metal manufacturing to ensure consistent performance at scale.</span>
+          <span data-lang="de">Tiefes Verständnis für Materialeigenschaften und Fertigungsanforderungen. Erfahren in der Optimierung von Designs für Spritzguss, Extrusion und Metallverarbeitung, um zuverlässige Leistung in großem Maßstab zu gewährleisten.</span>
         </p>
       </div>
     </div>
@@ -470,25 +422,25 @@
   <!-- PORTFOLIO -->
   <div class="gallery-section">
     <p class="section-label">
-      <span data-lang="en">Work</span>
-      <span data-lang="de">Projekte</span>
+      <span data-lang="en">Work & Projects</span>
+      <span data-lang="de">Projekte & Arbeiten</span>
     </p>
 
     <!-- PROJECT 1 -->
     <p class="gallery-sub-label">
-      <span data-lang="en">Contract Work</span>
-      <span data-lang="de">Auftragsarbeit</span>
+      <span data-lang="en">Robotic Systems & Component Design</span>
+      <span data-lang="de">Robotik-Systeme & Bauteilkonstruktion</span>
     </p>
 
     <div class="gallery-vtol-hero">
       <img src="Engineering (1).png"  alt="Strip Feed" />
       <img src="Drawing.png"  alt="Drawing for Manufacturing" />
       <img src="Transmission.jpg"  alt="Transmission" />
-      <img src="Engineering (12).jpeg" alt="Pipe refurbishment system detail" />
+      <img src="Engineering (12).jpeg" alt="Robotic system detail" />
     </div>
 
     <div class="gallery-vtol-wide">
-      <img src="Roboter.png" alt="Refurbishment Robot" />
+      <img src="Roboter.png" alt="Robotic Platform Prototype" />
     </div>
 
     <div class="gallery-vtol-wide" style="margin-top:4px;">
@@ -497,19 +449,18 @@
 
     <!-- PROJECT 2 -->
     <p class="gallery-sub-label" style="padding-top: 4rem;">
-      <span data-lang="en">Bendable Pipe Inspection Camera</span>
-      <span data-lang="de">Biegsame Rohrinspektion Kamera</span>
+      <span data-lang="en">Research & Prototyping</span>
+      <span data-lang="de">Forschung & Prototyping</span>
       <img src="Validation.png"  alt="Validation for Research Project" />
-      <img src="Engineering (1).jpg" alt="Bendable Inspection Camera Concept" />
-      <img src="Engineering (3).jpg" alt="Bendable Inspection Camera Concept" />
+      <img src="Engineering (1).jpg" alt="Inspection Camera Concept" />
+      <img src="Engineering (3).jpg" alt="Inspection Camera Concept" />
     </p>
-
 
   </div>
 
   <p class="more-note">
-    <span data-lang="en">Further projects &amp; references available on request</span>
-    <span data-lang="de">Weitere Projekte &amp; Referenzen auf Anfrage</span>
+    <span data-lang="en">Further projects & references available on request</span>
+    <span data-lang="de">Weitere Projekte & Referenzen auf Anfrage</span>
   </p>
 
   <!-- FOOTER -->
@@ -520,11 +471,11 @@
     </p>
     <p>
       <strong style="color: rgba(235,228,215,0.55); font-weight: 400;">Lukas Hiltensberger</strong><br>
-      Haslachweg 1, 87538 Fischen, <span data-lang="en">Germany</span><span data-lang="de">Deutschland</span><br><br>
+      Haslachweg 1, 87538 Fischen, <span data-lang="en">Germany / Norway</span><span data-lang="de">Deutschland / Norwegen</span><br><br>
       (+49) 157 3746 3621<br>
       <a href="mailto:lukas@hiltensberger.eu">lukas@hiltensberger.eu</a><br><br>
       <span data-lang="en">All content on this website is for informational purposes only.</span>
-      <span data-lang="de">Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecessen.</span>
+      <span data-lang="de">Alle Inhalte dieser Website dienen ausschließlich zu Informationszwecken.</span>
     </p>
   </footer>
 
